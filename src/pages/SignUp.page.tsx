@@ -31,9 +31,25 @@ const SignUpPage = () => {
             <form>
               <Stack gap={56}>
                 <Stack gap={24}>
-                  <TextInput placeholder="Email address" radius="md" />
+                  <TextInput
+                    placeholder="Email address"
+                    radius="md"
+                    styles={{
+                      input: {
+                        boxShadow: '0px 1px 2px 0px #0000000D',
+                      },
+                    }}
+                  />
                   <Stack gap={4}>
-                    <PasswordInput placeholder="Password" radius="md" />
+                    <PasswordInput
+                      placeholder="Password"
+                      radius="md"
+                      styles={{
+                        input: {
+                          boxShadow: '0px 1px 2px 0px #0000000D',
+                        },
+                      }}
+                    />
                     <List pl={5}>
                       <List.Item fz={12} lh="140%" fw={400} c="#030712">
                         Mix of uppercase & lowercase letters

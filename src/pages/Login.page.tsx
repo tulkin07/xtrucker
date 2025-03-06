@@ -20,8 +20,24 @@ const LoginPage = () => {
         <Card p={40} miw={432} bg="#fff" mt={32} mb={32} radius="lg">
           <Stack gap={28}>
             <Stack gap={16}>
-              <TextInput placeholder="Email address" radius="md" />
-              <PasswordInput placeholder="Password" radius="md" />
+              <TextInput
+                placeholder="Email address"
+                radius="md"
+                styles={{
+                  input: {
+                    boxShadow: '0px 1px 2px 0px #0000000D',
+                  },
+                }}
+              />
+              <PasswordInput
+                placeholder="Password"
+                radius="md"
+                styles={{
+                  input: {
+                    boxShadow: '0px 1px 2px 0px #0000000D',
+                  },
+                }}
+              />
             </Stack>
             <Stack gap={24}>
               <Button radius="md" color="teal.5">
