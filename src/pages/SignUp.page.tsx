@@ -1,10 +1,10 @@
+import rightLargeImage from '/assets/media/register-right-image.webp';
 import {
   Anchor,
   Box,
   Button,
   Checkbox,
   Flex,
-  Grid,
   List,
   PasswordInput,
   Stack,
@@ -12,17 +12,18 @@ import {
   TextInput,
 } from '@mantine/core';
 import classes from './styles/Register.module.css';
-import rightLargeImage from '/assets/media/register-right-image.webp'
 
 const SignUpPage = () => {
   return (
-    <Flex w='100%'>
-      <Box w='100%' bg="#F9FAFB" pos="relative">
+    <Flex w="100%">
+      <Box w="100%" bg="#F9FAFB" pos="relative">
         <Stack justify="center" align="center" h="calc(100vh)">
           <Stack gap={32} w="416px">
             <Stack gap={12}>
-              <Text c='#030712' fz={24} fw={700} lh='140%'>Create Your Account</Text>
-              <Text fz={16} fw={400} lh='140%' c='#6B7280'>
+              <Text c="#030712" fz={24} fw={700} lh="140%">
+                Create Your Account
+              </Text>
+              <Text fz={16} fw={400} lh="140%" c="#6B7280">
                 Start for free and explore all the tools. <br />
                 Upgrade anytime for team features.
               </Text>
@@ -71,15 +72,20 @@ const SignUpPage = () => {
           c="#6B7280"
           fz={14}
           fw={400}
-          style={{textAlign:'center'}}
-          w='100%'
+          style={{ textAlign: 'center' }}
+          w="100%"
         >
           By proceeding, you agree to our <Anchor c="#0A0A0A">Terms</Anchor> and{' '}
           <Anchor c="#0A0A0A">Privacy Policy</Anchor>.
         </Text>
       </Box>
-      <Box w='100%' h='100vh' bg="#F3F4F6" pos='relative'>
-        <img className={classes.tda_large_image} loading='lazy' src={rightLargeImage} />
+      <Box w="100%" h="100vh" bg="#F3F4F6" pos="relative">
+        <img
+          className={classes.tda_large_image}
+          loading="lazy"
+          src={rightLargeImage}
+          alt="Dashboard introduction"
+        />
       </Box>
     </Flex>
   );

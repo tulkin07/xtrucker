@@ -3,15 +3,12 @@ import {
   Box,
   Button,
   Card,
-  Checkbox,
   Divider,
-  Grid,
   PasswordInput,
   Stack,
   Text,
   TextInput,
 } from '@mantine/core';
-import Icon from '@/components/icons/Icon.component';
 import GoogleIcon from '@/components/icons/module/Google.icon';
 import classes from './styles/Login.module.css';
 
