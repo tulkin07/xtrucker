@@ -36,7 +36,7 @@ const router = createBrowserRouter([
   {
     element: <SimpleLayout />,
     children: [
-      { element: <Navigate to="/dashboard/app" />, index: true },
+      { element: <Navigate to="/sign-up" />, index: true },
       {
         path: '404',
         element: (

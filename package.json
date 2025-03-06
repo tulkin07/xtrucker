@@ -16,7 +16,7 @@
     "vitest": "vitest run",
     "vitest:watch": "vitest",
     "fix": "yarn prettier:write",
-    "test": "yarn typecheck && yarn prettier && yarn lint && yarn vitest && yarn build",
+    "test": "yarn typecheck && yarn prettier:write && yarn lint && yarn vitest && yarn build",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "prepare": "husky"
