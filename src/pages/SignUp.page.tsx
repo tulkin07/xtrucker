@@ -1,3 +1,4 @@
+import classes from './styles/Register.module.scss';
 import rightLargeImage from '/assets/media/register-right-image.webp';
 import {
   Anchor,
@@ -11,7 +12,6 @@ import {
   Text,
   TextInput,
 } from '@mantine/core';
-import classes from './styles/Register.module.css';
 
 const SignUpPage = () => {
   return (

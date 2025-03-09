@@ -1,11 +1,13 @@
-import { Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import DashboardLayout from './components/layout/dashboard/Dashboard.layout';
-import SimpleLayout from './components/layout/simple-layout';
-import ProtectedRoute from './components/ui/protected-route';
-import NotFoundPage from './pages/404.page';
-import LoginPage from './pages/Login.page';
-import SignUpPage from './pages/SignUp.page';
+
+const DashboardLayout = lazy(() => import('./components/layout/dashboard/Dashboard.layout'));
+const SimpleLayout = lazy(() => import('./components/layout/simple-layout'));
+const ProtectedRoute = lazy(() => import('./components/ui/protected-route'));
+const NotFoundPage = lazy(() => import('./pages/404.page'));
+const LoginPage = lazy(() => import('./pages/Login.page'));
+const SignUpPage = lazy(() => import('./pages/SignUp.page'));
+const OnboardingPage = lazy(() => import('./pages/Onboarding.page'));
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [],
+  },
+  {
+    path: '/onboarding',
+    element: (
+      <Suspense fallback="">
+        <OnboardingPage />
+      </Suspense>
+    ),
   },
   {
     path: '/sign-up',

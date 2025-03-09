@@ -1,3 +1,4 @@
+import classes from './styles/Login.module.scss';
 import {
   Anchor,
   Box,
@@ -10,7 +11,6 @@ import {
   TextInput,
 } from '@mantine/core';
 import GoogleIcon from '@/components/icons/module/Google.icon';
-import classes from './styles/Login.module.css';
 
 const LoginPage = () => {
   return (

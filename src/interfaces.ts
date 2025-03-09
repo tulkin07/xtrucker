@@ -35,6 +35,8 @@ export type TransactionFilterType = 'year' | 'week' | 'month';
 
 export type TransactionWidgetType = 'daily' | 'weekly' | 'monthly' | 'yearly';
 
+export type OnboardingTypes = 'COMPANY' | 'DOCUMENTS' | 'PAYMENT';
+
 export interface IAllocation {
   amount: string;
   category: string;

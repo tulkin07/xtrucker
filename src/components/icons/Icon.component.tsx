@@ -15,7 +15,7 @@ const Icon = ({
   height = '24px',
   color = '#030712',
 }: TypeProps) => {
-  return <SvgColor src={`${path}${icon}.svg`} sx={{ width, height, color }} />;
+  return <SvgColor src={`${path}${icon}.svg`} sx={{ width, height, color }} color={color} />;
 };
 
 export default Icon;
