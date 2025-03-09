@@ -34,7 +34,7 @@ const OnboardingPage = () => {
         break;
       }
     }
-  }, [curr_tab])
+  }, [curr_tab]);
 
   const handleBack = useCallback(() => {
     switch (curr_tab) {
