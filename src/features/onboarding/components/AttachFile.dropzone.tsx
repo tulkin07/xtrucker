@@ -33,7 +33,7 @@ const AttachFileDropzone: React.FC<AttachFileDropzoneProps> = (props) => {
           </Text>
         </Group>
         <Dropzone.Idle>
-          <Button h={32} radius={8} color="#0C4A6E">
+          <Button h={32} radius={8} color="sky.8">
             Upload
           </Button>
         </Dropzone.Idle>

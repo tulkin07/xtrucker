@@ -36,7 +36,7 @@ const TabLayout: React.FC<TabLayoutProps> = ({
         <StepsTabComponent step={step} maxStep={maxStep} />
         <Card p={20} withBorder classNames={{ root: mainClasses.tab_card }}>
           {children}
-          <Button color="#0C4A6E" radius={8} fullWidth onClick={onButtonClick} mt={16}>
+          <Button color="sky.8" radius={8} fullWidth onClick={onButtonClick} mt={16}>
             {buttonText}
           </Button>
         </Card>

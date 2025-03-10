@@ -347,5 +347,6 @@ export const MANTINE_DEFAULT_COLORS: MantineThemeColors = {
   yellow: yellowColors,
   orange: orangeColors,
   teal: tealColors,
+  sky: skyColors,
   grape: ['', '', '', '', '', '', '', '', '', ''],
 };

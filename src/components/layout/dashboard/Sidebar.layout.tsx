@@ -10,7 +10,7 @@ const SidebarLayout = () => {
         <Icon icon="i_xtrucker" width="136.35px" height="32px" />
       </Group>
       <Stack p={12} gap={12}>
-        <Button color="#0C4A6E" size="md" radius={10}>
+        <Button color="sky.8" size="md" radius={10}>
           Create load
         </Button>
         <NavSection
