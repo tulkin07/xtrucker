@@ -1,12 +1,17 @@
 import { Grid, Select, TextInput } from '@mantine/core';
 import TabLayout from './Tab.layout';
 
-const CompanyTabComponent = () => {
+type CompanyTabComponentProps = {
+  onButtonClick: () => void;
+};
+
+const CompanyTabComponent: React.FC<CompanyTabComponentProps> = (props) => {
   return (
     <TabLayout
       title="Let's get your company up and running"
       description="Provide essential details like your company name, contact information, and business type."
       step={1}
+      onButtonClick={props.onButtonClick}
     >
       <Grid>
         <Grid.Col>

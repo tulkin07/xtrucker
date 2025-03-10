@@ -1,12 +1,17 @@
 import { Grid, Select } from '@mantine/core';
 import TabLayout from './Tab.layout';
 
-const PaymentTabComponent = () => {
+type PaymentTabComponentProps = {
+  onButtonClick: () => void;
+};
+
+const PaymentTabComponent: React.FC<PaymentTabComponentProps> = (props) => {
   return (
     <TabLayout
       title="Compliance & Legal Documents"
       description="Stay compliant and protect your business"
       step={3}
+      onButtonClick={props.onButtonClick}
     >
       <Grid>
         <Grid.Col>

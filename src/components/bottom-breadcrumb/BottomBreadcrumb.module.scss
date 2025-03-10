@@ -1,0 +1,11 @@
+.breadCrumb_wrapper {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  left: calc(100% - 250px);
+  align-items: center;
+  height: 25px;
+  padding: 4px 8px;
+  background-color: #fff;
+  z-index: 200;
+}

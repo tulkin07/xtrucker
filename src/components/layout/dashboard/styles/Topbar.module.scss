@@ -1,0 +1,26 @@
+.topbar_searchbar {
+  height: 36px;
+}
+
+.topbar_wrapper {
+  position: fixed;
+  width: calc(100% - 250px);
+  right: 0;
+  top: 0;
+  border-bottom: 1px solid #f5f5f4;
+  height: 57px;
+  padding: 10.5px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.search_input {
+  border-radius: 6px 0 0 6px;
+  border-color: #e5e7eb;
+}
+
+.search_btn {
+  border-radius: 0 6px 6px 0;
+  border-left: none;
+  border-color: #e5e7eb;
+}

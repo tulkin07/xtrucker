@@ -15,13 +15,6 @@ const OnboardingPage = () => {
 
   const handleSkip = useCallback(() => {
     switch (curr_tab) {
-      case 'COMPANY': {
-        setSearchParams((prevParams) => {
-          prevParams.set('active_onboarding_tab', 'DOCUMENTS');
-          return prevParams;
-        });
-        break;
-      }
       case 'DOCUMENTS': {
         setSearchParams((prevParams) => {
           prevParams.set('active_onboarding_tab', 'PAYMENT');
@@ -31,6 +24,13 @@ const OnboardingPage = () => {
       }
       case 'PAYMENT': {
         navigate('/dashboard');
+        break;
+      }
+      default: {
+        setSearchParams((prevParams) => {
+          prevParams.set('active_onboarding_tab', 'DOCUMENTS');
+          return prevParams;
+        });
         break;
       }
     }
@@ -62,11 +62,11 @@ const OnboardingPage = () => {
   const renderTabs = useMemo(() => {
     switch (curr_tab) {
       case 'DOCUMENTS':
-        return <DocumentsTabComponent />;
+        return <DocumentsTabComponent onButtonClick={handleSkip} />;
       case 'PAYMENT':
-        return <PaymentTabComponent />;
+        return <PaymentTabComponent onButtonClick={handleSkip} />;
       default:
-        return <CompanyTabComponent />;
+        return <CompanyTabComponent onButtonClick={handleSkip} />;
     }
   }, [curr_tab]);
 

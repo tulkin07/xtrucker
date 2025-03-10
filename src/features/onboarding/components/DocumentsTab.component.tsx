@@ -2,12 +2,17 @@ import { Grid, TextInput } from '@mantine/core';
 import AttachFileDropzone from './AttachFile.dropzone';
 import TabLayout from './Tab.layout';
 
-const DocumentsTabComponent = () => {
+type DocumentsTabComponentProps = {
+  onButtonClick: () => void;
+};
+
+const DocumentsTabComponent: React.FC<DocumentsTabComponentProps> = (props) => {
   return (
     <TabLayout
       title="Compliance & Legal Documents"
       description="Stay compliant and protect your business"
       step={2}
+      onButtonClick={props.onButtonClick}
     >
       <Grid>
         <Grid.Col>
