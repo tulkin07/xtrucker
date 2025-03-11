@@ -43,28 +43,17 @@ export const stoneColors: MantineColorsTuple = [
 ];
 
 export const grayColors: MantineColorsTuple = [
-  // '#f9fafb', // [0] -> shade 50
-  // '#f3f4f6', // [1] -> shade 100
-  // '#e5e7eb', // [2] -> shade 200
-  // '#d1d5db', // [3] -> shade 300
-  // '#9ca3af', // [4] -> shade 400
-  // '#4b5563', // [5] -> shade 600
-  // '#374151', // [6] -> shade 700
-  // '#1f2937', // [7] -> shade 800
-  // '#111827', // [8] -> shade 900
-  // '#030712', // [9] -> shade 950
-  // '#6B7280', // [10] -> gray base
-  '#F7F6F6', // [0] -> shade 50
-  '#F3F2F2', // [1] -> shade 100
-  '#EBE9E9', // [2] -> shade 200
-  '#D6D3D3', // [3] -> shade 300
-  '#C7C2C2', // [4] -> shade 400
-  '#B4ADAD', // [5] -> shade 600
-  '#8A8686', // [6] -> shade 700
-  '#5A5858', // [7] -> shade 800
-  '#373535', // [8] -> shade 900
-  '#171616', // [9] -> shade 950
-  '#737373', // [10] -> neutral base
+  '#F9FAFB', // [0] -> shade 50
+  '#F3F4F6', // [1] -> shade 100
+  '#E5E7EB', // [2] -> shade 200
+  '#d1d5db', // [3] -> shade 300
+  '#9ca3af', // [4] -> shade 400
+  '#4b5563', // [5] -> shade 600
+  '#374151', // [6] -> shade 700
+  '#1f2937', // [7] -> shade 800
+  '#111827', // [8] -> shade 900
+  '#030712', // [9] -> shade 950
+  '#030712', // [10] -> gray base
 ];
 
 export const neutralColors: MantineColorsTuple = [
@@ -348,5 +337,9 @@ export const MANTINE_DEFAULT_COLORS: MantineThemeColors = {
   orange: orangeColors,
   teal: tealColors,
   sky: skyColors,
+  zinc: zincColors,
+  neutral: neutralColors,
+  slate: slateColors,
+  stone: stoneColors,
   grape: ['', '', '', '', '', '', '', '', '', ''],
 };
