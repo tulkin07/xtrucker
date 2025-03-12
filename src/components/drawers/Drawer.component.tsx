@@ -18,14 +18,7 @@ const DrawerComponent: React.FC<DrawerComponentProps> = (props) => {
     >
       <Drawer.Overlay />
       <Drawer.Content>
-        <Drawer.Header
-          styles={{
-            header: {
-              padding: '12px',
-              minHeight: '40px',
-            },
-          }}
-        >
+        <Drawer.Header h={40} p={12} mih={40}>
           <Drawer.Title
             styles={{
               title: {
