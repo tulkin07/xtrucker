@@ -499,12 +499,13 @@ const LoadManagementPage = () => {
         footer={
           <Group
             gap={8}
-            p={12}
+            pt={16}
+            pb={16}
             pos="sticky"
-            w="100%"
+            w="calc(100%)"
             justify="end"
             bottom={0}
-            left={0}
+            left={32}
             bg="white"
             style={{ zIndex: 10, borderTop: '1px solid var(--mantine-color-stone-1)' }}
           >

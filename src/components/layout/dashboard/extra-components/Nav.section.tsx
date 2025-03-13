@@ -22,10 +22,11 @@ const NavSection: React.FC<NavSectionProps> = (props) => {
         {props.title}
       </Text>
       <Stack gap={2}>
-        {props.links.map((item) => {
+        {props.links.map((item, index) => {
           const curr_path = location.pathname === item.path;
           return (
             <Button
+              key={index}
               styles={{
                 inner: {
                   justifyContent: 'start',
