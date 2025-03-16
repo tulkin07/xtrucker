@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button, Stack, Text } from '@mantine/core';
 import Icon from '@/components/icons/Icon.component';
 
@@ -15,6 +15,7 @@ type NavSectionProps = {
 
 const NavSection: React.FC<NavSectionProps> = (props) => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   return (
     <Stack gap={8}>
@@ -39,6 +40,10 @@ const NavSection: React.FC<NavSectionProps> = (props) => {
               color={curr_path ? '#F5F5F4' : 'gray'}
               component="a"
               href={item.path}
+              onClick={(e) => {
+                e.preventDefault();
+                navigate(item.path);
+              }}
             >
               <Text fz={14} lh="140%" fw={400} c={curr_path ? '#18181B' : '#18181B'}>
                 {item.label}

@@ -62,7 +62,7 @@ const LoadManagementPage = () => {
             paperProps={{
               withBorder: true,
               radius: 8,
-              h: 'calc(100vh - 163px)',
+              mah: 'calc(100vh - 163px)',
               style: {
                 overflow: 'auto',
               },

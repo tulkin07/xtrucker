@@ -163,9 +163,14 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
           <Table.Tbody>
             {data.map((item) => {
               const bgColor =
-                loadStatusColorMap[
-                  ((item as any)?.status ?? null) as keyof typeof loadStatusColorMap
-                ];
+                (((item as any).staus as keyof typeof loadStatusColorMap) &&
+                  loadStatusColorMap[
+                    ((item as any)?.status ?? null) as keyof typeof loadStatusColorMap
+                  ]) ||
+                ({
+                  bd: '#F0F1F5',
+                  bg: '#fff',
+                } as StatusBadgeColors);
 
               return (
                 <Table.Tr key={item.id} bg="red.1">

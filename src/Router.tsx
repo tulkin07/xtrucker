@@ -1,24 +1,32 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import SettingsLoader from './components/layout/settings/extra-components/Settings.loader';
-import SettingsLayout from './components/layout/settings/Settings.layout';
-import Brokers, { BrokersLoader } from './pages/brokers';
-import Drivers, { DriversLoader } from './pages/drivers';
-import LoadManagementPage, { LoadManagerLoader } from './pages/load-management';
-import MapView, { MapViewLoader } from './pages/map-view';
-import PlanningCalendar, { PlanningCalendarLoader } from './pages/planning-calendar';
-import CompanyProfilePage from './pages/settings/CompanyProfile.page';
-import IntegrationsPage from './pages/settings/Integrations.page';
-import PersonalInfoPage from './pages/settings/PersonalInfo.page';
-import SecurityPage from './pages/settings/Security.page';
+import { BrokersLoader } from './pages/brokers';
+import { DriversLoader } from './pages/drivers';
+import { LoadManagerLoader } from './pages/load-management';
+import { MapViewLoader } from './pages/map-view';
+import { PlanningCalendarLoader } from './pages/planning-calendar';
 
 const DashboardLayout = lazy(() => import('./components/layout/dashboard/Dashboard.layout'));
 const SimpleLayout = lazy(() => import('./components/layout/simple-layout'));
+const SettingsLoader = lazy(
+  () => import('./components/layout/settings/extra-components/Settings.loader')
+);
+const SettingsLayout = lazy(() => import('./components/layout/settings/Settings.layout'));
+
 const ProtectedRoute = lazy(() => import('./components/ui/protected-route'));
 const NotFoundPage = lazy(() => import('./pages/404.page'));
 const LoginPage = lazy(() => import('./pages/Login.page'));
 const SignUpPage = lazy(() => import('./pages/SignUp.page'));
 const OnboardingPage = lazy(() => import('./pages/Onboarding.page'));
+const Brokers = lazy(() => import('./pages/brokers'));
+const Drivers = lazy(() => import('./pages/drivers'));
+const LoadManagement = lazy(() => import('./pages/load-management'));
+const MapView = lazy(() => import('./pages/map-view'));
+const PlanningCalendar = lazy(() => import('./pages/planning-calendar'));
+const CompanyProfilePage = lazy(() => import('./pages/settings/CompanyProfile.page'));
+const IntegrationsPage = lazy(() => import('./pages/settings/Integrations.page'));
+const PersonalInfoPage = lazy(() => import('./pages/settings/PersonalInfo.page'));
+const SecurityPage = lazy(() => import('./pages/settings/Security.page'));
 
 const router = createBrowserRouter([
   {
@@ -33,7 +41,7 @@ const router = createBrowserRouter([
         index: true,
         element: (
           <Suspense fallback={<LoadManagerLoader />}>
-            <LoadManagementPage />
+            <LoadManagement />
           </Suspense>
         ),
       },
