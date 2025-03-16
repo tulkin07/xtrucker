@@ -1,10 +1,10 @@
 import classes from './styles/Topbar.module.scss';
+import { useNavigate } from 'react-router-dom';
 import { ActionIcon, Flex, Group, Text, TextInput } from '@mantine/core';
 import Icon from '@/components/icons/Icon.component';
 import NotificationPopover from './extra-components/Notification.popover';
 import PopoverComponent from './extra-components/Popover.component';
 import ProfilePopover from './extra-components/Profile.popover';
-import { useNavigate } from 'react-router-dom';
 
 type TopbarLayoutProps = {
   title: string;
