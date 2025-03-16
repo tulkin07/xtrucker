@@ -1,5 +1,6 @@
 import { createTheme } from '@mantine/core';
 import { MANTINE_DEFAULT_COLORS } from './lib/theme/colors';
+import { COMPONENTS } from './lib/theme/components';
 import { fontSizes, headings, lineHeights } from './lib/theme/typography';
 
 export const theme = createTheme({
@@ -20,4 +21,5 @@ export const theme = createTheme({
     light: 5,
     dark: 5,
   },
+  components: COMPONENTS,
 });

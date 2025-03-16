@@ -1,4 +1,5 @@
 import classes from './BottomBreadcrumb.module.scss';
+import { useNavigate } from 'react-router-dom';
 import { Anchor, Breadcrumbs, Group, Text } from '@mantine/core';
 
 type BottomBreadcrumbComponentProps = {
@@ -7,6 +8,7 @@ type BottomBreadcrumbComponentProps = {
 
 const BottomBreadcrumbComponent: React.FC<BottomBreadcrumbComponentProps> = (props) => {
   const { items } = props;
+  const navigate = useNavigate();
   const breadCrumbs = items.map((item, index) => {
     if (item.href === '#') {
       return (
@@ -16,7 +18,18 @@ const BottomBreadcrumbComponent: React.FC<BottomBreadcrumbComponentProps> = (pro
       );
     }
     return (
-      <Anchor fz={12} lh="140%" fw={400} href={item.href} key={index} c="#71717A">
+      <Anchor
+        fz={12}
+        lh="140%"
+        fw={400}
+        href={item.href}
+        key={index}
+        c="#71717A"
+        onClick={(e) => {
+          e.preventDefault();
+          navigate(item.href);
+        }}
+      >
         {item.title}
       </Anchor>
     );
