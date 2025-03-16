@@ -70,3 +70,8 @@ $mantine-breakpoint-xl: '88em';
     transform: scale(0.97);
   }
 }
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}

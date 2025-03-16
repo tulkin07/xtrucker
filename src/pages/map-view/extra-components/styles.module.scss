@@ -1,0 +1,20 @@
+.map_sidebar_wrapper {
+
+}
+
+.map_sidebar_card {
+    padding: 12px;
+    border-bottom: 1px solid var(--mantine-color-blue-0);
+    position: relative;
+    cursor: pointer;
+    &:hover {
+        background-color: #EFF6FF;
+    }
+}
+
+.map_modal_wrapper {
+    border-radius: 20px 0 20px 20px;
+    background-color: white;
+    overflow: hidden;
+}
+
