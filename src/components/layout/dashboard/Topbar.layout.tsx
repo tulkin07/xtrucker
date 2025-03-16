@@ -4,12 +4,14 @@ import Icon from '@/components/icons/Icon.component';
 import NotificationPopover from './extra-components/Notification.popover';
 import PopoverComponent from './extra-components/Popover.component';
 import ProfilePopover from './extra-components/Profile.popover';
+import { useNavigate } from 'react-router-dom';
 
 type TopbarLayoutProps = {
   title: string;
 };
 
 const TopbarLayout: React.FC<TopbarLayoutProps> = (props) => {
+  const navigate = useNavigate();
   return (
     <Group justify="space-between" align="center" className={classes.topbar_wrapper}>
       <Text fz={20} fw={700} lh="140%">
@@ -59,6 +61,10 @@ const TopbarLayout: React.FC<TopbarLayoutProps> = (props) => {
           color="#E4E4E7"
           radius={8}
           size="lg"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate('/dashboard/settings/personal-info');
+          }}
         >
           <Icon width="20px" height="20px" icon="i_settings" />
         </ActionIcon>
