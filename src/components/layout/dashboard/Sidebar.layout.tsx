@@ -23,7 +23,7 @@ const SidebarLayout = () => {
   };
 
   return (
-    <Stack gap={0} className={classes.dashbaord_sidebar}>
+    <Stack gap={0} className={classes.dashbaord_sidebar} left={72}>
       <Group p={12} className={classes.sidebar_logo_wrapper}>
         <Icon icon="i_xtrucker" width="136.35px" height="32px" />
       </Group>

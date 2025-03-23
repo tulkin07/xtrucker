@@ -35,7 +35,7 @@ const BottomBreadcrumbComponent: React.FC<BottomBreadcrumbComponentProps> = (pro
     );
   });
   return (
-    <Group align="center" justify="start" className={classes.breadCrumb_wrapper}>
+    <Group align="center" justify="start" className={classes.breadCrumb_wrapper} left="1px">
       <Breadcrumbs
         styles={{
           separator: {

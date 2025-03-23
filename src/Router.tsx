@@ -1,7 +1,11 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import { MapViewLoader as FleetMapViewLoader } from '@/pages/fleet-overview';
 import { BrokersLoader } from './pages/brokers';
 import { DriversLoader } from './pages/drivers';
+import { FleetMaintenanceLoader } from './pages/fleet-maintenance';
+import { FleetTrailersLoader } from './pages/fleet-trailers';
+import { FleetTrucksLoader } from './pages/fleet-trucks';
 import { LoadManagerLoader } from './pages/load-management';
 import { MapViewLoader } from './pages/map-view';
 import { PlanningCalendarLoader } from './pages/planning-calendar';
@@ -12,7 +16,6 @@ const SettingsLoader = lazy(
   () => import('./components/layout/settings/extra-components/Settings.loader')
 );
 const SettingsLayout = lazy(() => import('./components/layout/settings/Settings.layout'));
-
 const ProtectedRoute = lazy(() => import('./components/ui/protected-route'));
 const NotFoundPage = lazy(() => import('./pages/404.page'));
 const LoginPage = lazy(() => import('./pages/Login.page'));
@@ -27,6 +30,12 @@ const CompanyProfilePage = lazy(() => import('./pages/settings/CompanyProfile.pa
 const IntegrationsPage = lazy(() => import('./pages/settings/Integrations.page'));
 const PersonalInfoPage = lazy(() => import('./pages/settings/PersonalInfo.page'));
 const SecurityPage = lazy(() => import('./pages/settings/Security.page'));
+
+const FleetTrucksPage = lazy(() => import('@/pages/fleet-trucks'));
+const FleetMaintenance = lazy(() => import('@/pages/fleet-maintenance'));
+const FleetTrailersPage = lazy(() => import('@/pages/fleet-trailers'));
+const FleetDashboardLayout = lazy(() => import('./components/layout/fleet/FleetDashboard.layout'));
+const FleetMapViewPage = lazy(() => import('./pages/fleet-overview/MapView.page'));
 
 const router = createBrowserRouter([
   {
@@ -118,6 +127,48 @@ const router = createBrowserRouter([
         element: (
           <Suspense>
             <IntegrationsPage />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+  {
+    path: '/fleet-dashboard',
+    element: (
+      <ProtectedRoute>
+        <FleetDashboardLayout />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<FleetMapViewLoader />}>
+            <FleetMapViewPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'trucks',
+        element: (
+          <Suspense fallback={<FleetTrucksLoader />}>
+            <FleetTrucksPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'trailers',
+        element: (
+          <Suspense fallback={<FleetTrailersLoader />}>
+            <FleetTrailersPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'maintenance',
+        element: (
+          <Suspense fallback={<FleetMaintenanceLoader />}>
+            <FleetMaintenance />
           </Suspense>
         ),
       },

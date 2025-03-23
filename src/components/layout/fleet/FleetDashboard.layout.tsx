@@ -1,11 +1,9 @@
-import classes from './styles/main.module.scss';
 import { Outlet } from 'react-router-dom';
-import GSidebarLayout from './GSidebar.layout';
+import classes from '@/components/layout/dashboard/styles/main.module.scss';
+import GSidebarLayout from '../dashboard/GSidebar.layout';
 import SidebarLayout from './Sidebar.layout';
 
-type DashboardLayoutProps = {};
-
-const DashboardLayout: React.FC<DashboardLayoutProps> = () => {
+const FleetDashboardLayout = () => {
   return (
     <div className={classes.dashboard_main_part} style={{ paddingLeft: '321px' }}>
       <GSidebarLayout />
@@ -15,4 +13,4 @@ const DashboardLayout: React.FC<DashboardLayoutProps> = () => {
   );
 };
 
-export default DashboardLayout;
+export default FleetDashboardLayout;

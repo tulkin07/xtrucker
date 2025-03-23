@@ -1,19 +1,23 @@
-.table_head_data, .table_head_data_split_hours, .table_tbody_data, .table_tbody_data_split_hours, .table_tfoot_data {
-    border-color: var(--mantine-color-gray-1);
+.table_head_data,
+.table_head_data_split_hours,
+.table_tbody_data,
+.table_tbody_data_split_hours,
+.table_tfoot_data {
+  border-color: var(--mantine-color-gray-1);
 }
 
 .table_head_data {
-    min-width: 150px;
+  min-width: 150px;
 }
 
 .table_head_data_split_hours {
-    width: 240px;
-    min-width: 240px;
-    cursor: pointer;
+  width: 240px;
+  min-width: 240px;
+  cursor: pointer;
 }
 
 .table_tbody_data_split_hours {
-    position: relative;
-    padding: 7px;
-    height: 56px;
+  position: relative;
+  padding: 7px;
+  height: 56px;
 }

@@ -1,96 +1,95 @@
 :root {
-    /* Colors */
-    --color-success: #33c481;
-    --color-success-light: rgba(51, 196, 129, 0.24);
-    --color-error: #f52727;
-    --color-error-light: rgba(245, 39, 39, 0.24);
-    --color-border: rgb(240, 241, 245);
-  
-    /* Typography */
-    --font-size-sm: 12px;
-    --line-height-sm: 1.4;
-    --letter-spacing-default: 0.01em;
-  
-    /* Spacing */
-    --spacing-xs: 2px;
-    --spacing-sm: 6px;
-    --spacing-md: 10px;
-  
-    /* Common badge styles */
-    --badge-padding: var(--spacing-xs) var(--spacing-sm);
-  }
-  
-  /* Pagination wrapper */
+  /* Colors */
+  --color-success: #33c481;
+  --color-success-light: rgba(51, 196, 129, 0.24);
+  --color-error: #f52727;
+  --color-error-light: rgba(245, 39, 39, 0.24);
+  --color-border: rgb(240, 241, 245);
+
+  /* Typography */
+  --font-size-sm: 12px;
+  --line-height-sm: 1.4;
+  --letter-spacing-default: 0.01em;
+
+  /* Spacing */
+  --spacing-xs: 2px;
+  --spacing-sm: 6px;
+  --spacing-md: 10px;
+
+  /* Common badge styles */
+  --badge-padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+/* Pagination wrapper */
+.pagination__root__wrapper {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--spacing-md);
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--mantine-color-white);
+  z-index: 1;
+}
+
+/* Active badge */
+.active_badge__root,
+.inactive_badge__root {
+  background-color: transparent;
+  padding: var(--badge-padding);
+  transition: all 0.2s ease;
+}
+
+.active_badge__label,
+.inactive_badge__label {
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  line-height: var(--line-height-sm);
+  letter-spacing: var(--letter-spacing-default);
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+  text-transform: initial;
+}
+
+/* Active badge specific styles */
+.active_badge__root {
+  border: 1px solid var(--color-success-light);
+}
+
+.active_badge__label {
+  color: var(--color-success);
+}
+
+.active_badge__root:hover {
+  background-color: var(--color-success-light);
+}
+
+/* Inactive badge specific styles */
+.inactive_badge__root {
+  border: 1px solid var(--color-error-light);
+}
+
+.inactive_badge__label {
+  color: var(--color-error);
+}
+
+.inactive_badge__root:hover {
+  background-color: var(--color-error-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
   .pagination__root__wrapper {
-    position: sticky;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: var(--spacing-md);
-    display: flex;
-    justify-content: flex-end;
-    border-top: 1px solid var(--color-border);
-    background-color: var(--mantine-color-white);
-    z-index: 1;
+    position: static;
+    padding: var(--spacing-sm);
   }
-  
-  /* Active badge */
-  .active_badge__root,
-  .inactive_badge__root {
-    background-color: transparent;
-    padding: var(--badge-padding);
-    transition: all 0.2s ease;
-  }
-  
+
   .active_badge__label,
   .inactive_badge__label {
-    font-size: var(--font-size-sm);
-    font-weight: 400;
-    line-height: var(--line-height-sm);
-    letter-spacing: var(--letter-spacing-default);
-    text-align: left;
-    text-underline-position: from-font;
-    text-decoration-skip-ink: none;
-    cursor: pointer;
-    text-transform: initial;
+    font-size: calc(var(--font-size-sm) - 1px);
   }
-  
-  /* Active badge specific styles */
-  .active_badge__root {
-    border: 1px solid var(--color-success-light);
-  }
-  
-  .active_badge__label {
-    color: var(--color-success);
-  }
-  
-  .active_badge__root:hover {
-    background-color: var(--color-success-light);
-  }
-  
-  /* Inactive badge specific styles */
-  .inactive_badge__root {
-    border: 1px solid var(--color-error-light);
-  }
-  
-  .inactive_badge__label {
-    color: var(--color-error);
-  }
-  
-  .inactive_badge__root:hover {
-    background-color: var(--color-error-light);
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .pagination__root__wrapper {
-      position: static;
-      padding: var(--spacing-sm);
-    }
-  
-    .active_badge__label,
-    .inactive_badge__label {
-      font-size: calc(var(--font-size-sm) - 1px);
-    }
-  }
-  
+}

@@ -1,6 +1,7 @@
 .breadCrumb_wrapper {
   position: sticky;
   bottom: 0;
+  right: 0;
   width: 100%;
   left: calc(100% - 250px);
   align-items: center;
@@ -8,4 +9,5 @@
   padding: 4px 8px;
   background-color: #fff;
   z-index: 200;
+  margin-left: 1px;
 }

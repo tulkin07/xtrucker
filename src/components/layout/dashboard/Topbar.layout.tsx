@@ -13,7 +13,12 @@ type TopbarLayoutProps = {
 const TopbarLayout: React.FC<TopbarLayoutProps> = (props) => {
   const navigate = useNavigate();
   return (
-    <Group justify="space-between" align="center" className={classes.topbar_wrapper}>
+    <Group
+      justify="space-between"
+      align="center"
+      className={classes.topbar_wrapper}
+      w="calc(100% - 321px)"
+    >
       <Text fz={20} fw={700} lh="140%">
         {props.title}
       </Text>
