@@ -1,9 +1,9 @@
 import { useSearchParams } from 'react-router-dom';
 import { Button, Group, Select, Stack, Text } from '@mantine/core';
 import BottomBreadcrumbComponent from '@/components/bottom-breadcrumb/BottomBreadcrumb.component';
+import Icon from '@/components/icons/Icon.component';
 import TopbarLayout from '@/components/layout/dashboard/Topbar.layout';
 import ModifiedTableComponent from '@/components/table/Table.component';
-import Icon from '@/components/icons/Icon.component';
 
 const FleetMaintenancePage = () => {
   const [_, setSearchParams] = useSearchParams();
@@ -48,7 +48,7 @@ const FleetMaintenancePage = () => {
               color="sky.8"
               radius={10}
               onClick={() => handleBrokerDrawer('driver', 'create')}
-              leftSection={<Icon icon='i_plus' width='18px' height='18px' color='#fff'  />}
+              leftSection={<Icon icon="i_plus" width="18px" height="18px" color="#fff" />}
             >
               Create order
             </Button>
