@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom';
-import { Button, Group, Select, Stack, Text } from '@mantine/core';
+import { Badge, Button, Group, Select, Stack, Text } from '@mantine/core';
 import BottomBreadcrumbComponent from '@/components/bottom-breadcrumb/BottomBreadcrumb.component';
 import Icon from '@/components/icons/Icon.component';
 import TopbarLayout from '@/components/layout/dashboard/Topbar.layout';
@@ -87,13 +87,13 @@ const FleetMaintenancePage = () => {
             ]}
             columns={[
               {
-                label: 'Truck #',
+                label: 'Order #',
                 key: 'name',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.name ?? '---'}
+                    <Text fz={12} fw={400} lh="140%" c="neutral.9">
+                      516517
                     </Text>
                   );
                 },
@@ -102,11 +102,25 @@ const FleetMaintenancePage = () => {
                 label: 'Licence plate',
                 key: 'phone_number',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.phone_number ?? '---'}
-                    </Text>
+                    <Group justify="space-between" wrap="nowrap" miw={180}>
+                      <Text fz={12} fw={400} lh="140%" c="neutral.9">
+                        7632014
+                      </Text>
+                      <Badge
+                        color="#BFDBFE"
+                        variant="outline"
+                        bg="#EFF6FF"
+                        radius={6}
+                        c="#1D4ED8"
+                        fz={12}
+                        lh="140%"
+                        fw={400}
+                      >
+                        Trailer
+                      </Badge>
+                    </Group>
                   );
                 },
               },
@@ -114,58 +128,74 @@ const FleetMaintenancePage = () => {
                 label: 'Operated by',
                 key: 'mc_number',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.mc_number ?? '---'}
+                    <Stack gap={4}>
+                      <Group justify="start" gap={4} wrap="nowrap">
+                        <Icon icon="i_milemeter" color="#71717A" width="14px" height="14px" />
+                        <Text fz={12} fw={400} lh="140%" c="neutral.9">
+                          11 221 Miles
+                        </Text>
+                      </Group>
+                      <Group justify="start" gap={4} wrap="nowrap">
+                        <Icon icon="i_engine" color="#71717A" width="14px" height="14px" />
+                        <Text fz={12} fw={400} lh="140%" c="neutral.9">
+                          15 778 hrs
+                        </Text>
+                      </Group>
+                    </Stack>
+                  );
+                },
+              },
+              {
+                label: 'Repair date',
+                key: 'billing_address',
+                sortable: true,
+                render() {
+                  return (
+                    <Text fz={12} fw={400} lh="140%" c="neutral.9">
+                      Mar 20 06:36
                     </Text>
                   );
                 },
               },
               {
-                label: 'Registration',
+                label: 'Total cost',
                 key: 'billing_address',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.billing_address ?? '---'}
+                    <Text fz={12} fw={400} lh="140%" c="neutral.9">
+                      $7,200
                     </Text>
                   );
                 },
               },
               {
-                label: 'Inspection',
+                label: 'Bill To (Payer)',
                 key: 'billing_address',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.billing_address ?? '---'}
-                    </Text>
+                    <Stack gap={0}>
+                      <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
+                        Stephanie Sharkey
+                      </Text>
+                      <Text fz={12} fw={400} lh="140%" c="#71717A">
+                        Carrier: J. Brannam
+                      </Text>
+                    </Stack>
                   );
                 },
               },
               {
-                label: 'Lease agreement',
+                label: 'Status',
                 key: 'billing_address',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.billing_address ?? '---'}
-                    </Text>
-                  );
-                },
-              },
-              {
-                label: 'Permits',
-                key: 'billing_address',
-                sortable: true,
-                render(item) {
-                  return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.billing_address ?? '---'}
+                    <Text fz={12} fw={400} lh="140%" c="neutral.9">
+                      Active
                     </Text>
                   );
                 },

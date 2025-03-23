@@ -1,6 +1,6 @@
 // import { useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Button, Group, Select, Stack, Text } from '@mantine/core';
+import { ActionIcon, Button, Group, Select, Stack, Text } from '@mantine/core';
 import BottomBreadcrumbComponent from '@/components/bottom-breadcrumb/BottomBreadcrumb.component';
 import Icon from '@/components/icons/Icon.component';
 import TopbarLayout from '@/components/layout/dashboard/Topbar.layout';
@@ -91,10 +91,10 @@ const FleetTrucksPage = () => {
                 label: 'Truck #',
                 key: 'name',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
                     <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.name ?? '---'}
+                      100462
                     </Text>
                   );
                 },
@@ -103,10 +103,10 @@ const FleetTrucksPage = () => {
                 label: 'Licence plate',
                 key: 'phone_number',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
                     <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.phone_number ?? '---'}
+                      100462
                     </Text>
                   );
                 },
@@ -115,11 +115,16 @@ const FleetTrucksPage = () => {
                 label: 'Operated by',
                 key: 'mc_number',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.mc_number ?? '---'}
-                    </Text>
+                    <Stack gap={0}>
+                      <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
+                        James Hall
+                      </Text>
+                      <Text fz={12} fw={400} lh="140%" c="#3B82F6">
+                        Cut Rite Lawn Care
+                      </Text>
+                    </Stack>
                   );
                 },
               },
@@ -127,11 +132,16 @@ const FleetTrucksPage = () => {
                 label: 'Registration',
                 key: 'billing_address',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.billing_address ?? '---'}
-                    </Text>
+                    <Group justify="space-between" align="center" wrap="nowrap">
+                      <Text fz={12} fw={400} lh="140%" c="#3B82F6">
+                        Registration.PDF
+                      </Text>
+                      <ActionIcon variant="subtle" size="xs">
+                        <Icon icon="i_xclose" width="14" height="14" />
+                      </ActionIcon>
+                    </Group>
                   );
                 },
               },
@@ -139,11 +149,16 @@ const FleetTrucksPage = () => {
                 label: 'Inspection',
                 key: 'billing_address',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.billing_address ?? '---'}
-                    </Text>
+                    <Group justify="space-between" align="center" wrap="nowrap">
+                      <Text fz={12} fw={400} lh="140%" c="#3B82F6">
+                        Inspection_2025.PDF
+                      </Text>
+                      <ActionIcon variant="subtle" size="xs">
+                        <Icon icon="i_xclose" width="14" height="14" />
+                      </ActionIcon>
+                    </Group>
                   );
                 },
               },
@@ -151,11 +166,16 @@ const FleetTrucksPage = () => {
                 label: 'Lease agreement',
                 key: 'billing_address',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
-                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.billing_address ?? '---'}
-                    </Text>
+                    <Group justify="space-between" align="center" wrap="nowrap">
+                      <Text fz={12} fw={400} lh="140%" c="#3B82F6">
+                        Lease_07.06.2025.PDF
+                      </Text>
+                      <ActionIcon variant="subtle" size="xs">
+                        <Icon icon="i_xclose" width="14" height="14" />
+                      </ActionIcon>
+                    </Group>
                   );
                 },
               },
@@ -163,10 +183,10 @@ const FleetTrucksPage = () => {
                 label: 'Permits',
                 key: 'billing_address',
                 sortable: true,
-                render(item) {
+                render() {
                   return (
                     <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
-                      {item.billing_address ?? '---'}
+                      ---
                     </Text>
                   );
                 },
