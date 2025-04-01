@@ -1,2 +1,2 @@
 export { default } from './MapView.page';
-export { MapViewLoader } from './MapView.loader';
+export { FleetMapViewLoader } from './MapView.loader';

@@ -48,3 +48,15 @@ export interface IAllocation {
 export interface ICustomShadows {
   [key: string]: string;
 }
+
+export interface IInvoiceFactoring {
+  id: number;
+  load: number;
+  broker: string;
+  driver: string;
+  pu_del: string;
+  delivery_date: string;
+  amount: number;
+  status: 'ready_for_factor' | 'sent_to_factoring' | 'factored' | 'rejected';
+  comment: string;
+}

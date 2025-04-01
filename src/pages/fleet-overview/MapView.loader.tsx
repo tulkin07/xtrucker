@@ -1,5 +1,5 @@
-const MapViewLoader = () => {
-  return <div>MapViewLoader</div>;
+const FleetMapViewLoader = () => {
+  return <div>FleetMapViewLoader</div>;
 };
 
-export { MapViewLoader };
+export { FleetMapViewLoader };

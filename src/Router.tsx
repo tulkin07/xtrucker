@@ -1,14 +1,23 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
-import { MapViewLoader as FleetMapViewLoader } from '@/pages/fleet-overview';
-import { BrokersLoader } from './pages/brokers';
-import { DriversLoader } from './pages/drivers';
-import { FleetMaintenanceLoader } from './pages/fleet-maintenance';
-import { FleetTrailersLoader } from './pages/fleet-trailers';
-import { FleetTrucksLoader } from './pages/fleet-trucks';
-import { LoadManagerLoader } from './pages/load-management';
-import { MapViewLoader } from './pages/map-view';
-import { PlanningCalendarLoader } from './pages/planning-calendar';
+import { BrokersLoader } from '@/pages/brokers';
+import { CompaniesLoader } from '@/pages/companies';
+import { DriverStatementsLoader } from '@/pages/driver-statements';
+import { DriversLoader } from '@/pages/drivers';
+import { FileViewerLoader } from '@/pages/file-viewer';
+import { FleetMaintenanceLoader } from '@/pages/fleet-maintenance';
+import { FleetMapViewLoader } from '@/pages/fleet-overview';
+import { FleetTrailersLoader } from '@/pages/fleet-trailers';
+import { FleetTrucksLoader } from '@/pages/fleet-trucks';
+import { IncomeExpenseLoader } from '@/pages/income-expense';
+import { InvoicesLoader } from '@/pages/invoices/Invoices.loader';
+import { LoadManagerLoader } from '@/pages/load-management';
+import { MapViewLoader } from '@/pages/map-view';
+import { PlanningCalendarLoader } from '@/pages/planning-calendar';
+import { LogBookLoader } from './pages/log-book';
+import { SafetyScheduleCalendarLoader } from './pages/safety-schedule-calendar';
+import { SafetyTasksLoader } from './pages/safety-tasks';
+import { SafetyTrucksLoader } from './pages/safety-trucks';
 
 const DashboardLayout = lazy(() => import('./components/layout/dashboard/Dashboard.layout'));
 const SimpleLayout = lazy(() => import('./components/layout/simple-layout'));
@@ -37,13 +46,32 @@ const FleetTrailersPage = lazy(() => import('@/pages/fleet-trailers'));
 const FleetDashboardLayout = lazy(() => import('./components/layout/fleet/FleetDashboard.layout'));
 const FleetMapViewPage = lazy(() => import('./pages/fleet-overview/MapView.page'));
 
+const AccountingDashboardLayout = lazy(
+  () => import('./components/layout/accounting/AccountingDashboard.layout')
+);
+const InvoicesPage = lazy(() => import('./pages/invoices'));
+const IncomeExpensePage = lazy(() => import('./pages/income-expense'));
+const DriverStatements = lazy(() => import('./pages/driver-statements'));
+const CompaniesPage = lazy(() => import('./pages/companies'));
+const FileViewerPage = lazy(() => import('./pages/file-viewer'));
+
+const SafetyDashboardLayout = lazy(
+  () => import('./components/layout/safety/SafetyDashboard.layout')
+);
+const LogBookPage = lazy(() => import('./pages/log-book'));
+const SafetyTasksPage = lazy(() => import('./pages/safety-tasks'));
+const SafetyTrucksPage = lazy(() => import('./pages/safety-trucks'));
+const SafetyScheduleCalendarPage = lazy(() => import('./pages/safety-schedule-calendar'));
+
 const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: (
-      <ProtectedRoute>
-        <DashboardLayout />
-      </ProtectedRoute>
+      <Suspense fallback="">
+        <ProtectedRoute>
+          <DashboardLayout />
+        </ProtectedRoute>
+      </Suspense>
     ),
     children: [
       {
@@ -169,6 +197,100 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<FleetMaintenanceLoader />}>
             <FleetMaintenance />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+  {
+    path: '/accounting-dashboard',
+    element: (
+      <ProtectedRoute>
+        <AccountingDashboardLayout />
+      </ProtectedRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<InvoicesLoader />}>
+            <InvoicesPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'income-expence',
+        element: (
+          <Suspense fallback={<IncomeExpenseLoader />}>
+            <IncomeExpensePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'driver-statement',
+        element: (
+          <Suspense fallback={<DriverStatementsLoader />}>
+            <DriverStatements />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'companies',
+        element: (
+          <Suspense fallback={<CompaniesLoader />}>
+            <CompaniesPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'file-viewer',
+        element: (
+          <Suspense fallback={<FileViewerLoader />}>
+            <FileViewerPage />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+  {
+    path: '/safety-dashboard',
+    element: (
+      <Suspense fallback="">
+        <ProtectedRoute>
+          <SafetyDashboardLayout />
+        </ProtectedRoute>
+      </Suspense>
+    ),
+    children: [
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<LogBookLoader />}>
+            <LogBookPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'safety-tasks',
+        element: (
+          <Suspense fallback={<SafetyTasksLoader />}>
+            <SafetyTasksPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'trucks',
+        element: (
+          <Suspense fallback={<SafetyTrucksLoader />}>
+            <SafetyTrucksPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'expiration-calendar',
+        element: (
+          <Suspense fallback={<SafetyScheduleCalendarLoader />}>
+            <SafetyScheduleCalendarPage />
           </Suspense>
         ),
       },

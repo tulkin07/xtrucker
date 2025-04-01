@@ -129,31 +129,35 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
       <Table withColumnBorders withRowBorders stickyHeader>
         <Table.Thead>
           <Table.Tr>
-            {columns.map((column) => (
-              <Table.Th
-                key={String(column.key)}
-                bg="neutral.0"
-                styles={{
-                  th: {
-                    whiteSpace: 'nowrap',
-                    cursor: 'pointer',
-                    minWidth: 'fit-content',
-                    flexWrap: 'nowrap',
-                  },
-                }}
-              >
-                <Group justify="space-between" align="center" wrap="nowrap">
-                  <Text fz={12} fw={400} lh="140%" c="zinc.5">
-                    {column.label}
-                  </Text>
-                  {column.sortable && (
-                    <ActionIcon size="xs" variant="subtle" color="zinc.5">
-                      <Icon icon="i_filter" width="14px" height="14px" color="#71717A" />
-                    </ActionIcon>
-                  )}
-                </Group>
-              </Table.Th>
-            ))}
+            {columns.map((column) => {
+              const label = typeof column.label === 'string' ? column.label : column.label();
+
+              return (
+                <Table.Th
+                  key={String(column.key)}
+                  bg="neutral.0"
+                  styles={{
+                    th: {
+                      whiteSpace: 'nowrap',
+                      cursor: 'pointer',
+                      minWidth: 'fit-content',
+                      flexWrap: 'nowrap',
+                    },
+                  }}
+                >
+                  <Group justify="space-between" align="center" wrap="nowrap">
+                    <Text fz={12} fw={400} lh="140%" c="zinc.5">
+                      {label}
+                    </Text>
+                    {column.sortable && (
+                      <ActionIcon size="xs" variant="subtle" color="zinc.5">
+                        <Icon icon="i_filter" width="14px" height="14px" color="#71717A" />
+                      </ActionIcon>
+                    )}
+                  </Group>
+                </Table.Th>
+              );
+            })}
           </Table.Tr>
         </Table.Thead>
         {loading && <LoadingState />}

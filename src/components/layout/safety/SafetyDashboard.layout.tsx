@@ -3,7 +3,7 @@ import classes from '@/components/layout/dashboard/styles/main.module.scss';
 import GSidebarLayout from '../dashboard/GSidebar.layout';
 import SidebarLayout from './Sidebar.layout';
 
-const AccountingDashboardLayout = () => {
+const FleetDashboardLayout = () => {
   return (
     <div className={classes.dashboard_main_part} style={{ paddingLeft: '321px' }}>
       <GSidebarLayout />
@@ -13,4 +13,4 @@ const AccountingDashboardLayout = () => {
   );
 };
 
-export default AccountingDashboardLayout;
+export default FleetDashboardLayout;

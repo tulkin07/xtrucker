@@ -6,9 +6,9 @@ import GSidebarItem from './extra-components/GSidebar.item';
 const GSidebarLayout = () => {
   const globalUrls = [
     { icon: 'i_dashboard_fill', tooltip: 'Dashboard', url: '/dashboard' },
-    { icon: 'i_truck_fill', tooltip: 'Fleet management', url: '/fleet-dashboard' },
-    { icon: 'i_tools_fill', tooltip: 'Tools', url: '/tools-dashboard' },
-    { icon: 'i_calendar_fill', tooltip: 'Calendar', url: '/calendar' },
+    { icon: 'i_calculator', tooltip: 'Accounting', url: '/accounting-dashboard' },
+    { icon: 'i_truck_line', tooltip: 'Fleet management', url: '/fleet-dashboard' },
+    { icon: 'i_shield', tooltip: 'Safety', url: '/safety-dashboard' },
   ];
   return (
     <Stack className={classes.layout_root_wrapper}>
