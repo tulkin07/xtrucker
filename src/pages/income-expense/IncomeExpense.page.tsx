@@ -24,7 +24,7 @@ import TopbarLayout from '@/components/layout/dashboard/Topbar.layout';
 const IncomeExpensePage = () => {
   return (
     <>
-      <Stack p="16px 8px 16px 8px" h="100%">
+      <Stack p="16px 8px 16px 8px" h="100%" w='calc(100vw - 250px - 72px)'>
         <TopbarLayout title="Income & Expense" />
         <Stack
           component="main"
