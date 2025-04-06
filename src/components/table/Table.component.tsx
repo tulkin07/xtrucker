@@ -378,8 +378,19 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
                     ))}
                   </Table.Tr>
                   {getChildRows && (
-                    <Table.Tr key={`${item.id}-expanded`} style={{ display: 'table-row' }}>
-                      <Table.Td colSpan={columns.length} p={0} style={{ border: 'none' }}>
+                    <Table.Tr
+                      key={`${item.id}-expanded`}
+                      style={{ display: 'table-row', border: 'none' }}
+                    >
+                      <Table.Td
+                        colSpan={columns.length}
+                        p={0}
+                        style={{
+                          borderBottom: isRowExpanded(item.id)
+                            ? 'calc(0.0625rem * var(--mantine-scale)) solid var(--table-border-color)'
+                            : 'none',
+                        }}
+                      >
                         <Collapse in={isRowExpanded(item.id)}>{renderChildTable(item)}</Collapse>
                       </Table.Td>
                     </Table.Tr>
