@@ -20,6 +20,35 @@
   --badge-padding: var(--spacing-xs) var(--spacing-sm);
 }
 
+.child_table_wrapper {
+  margin: 0 0 0 32px;
+  border-bottom: 1px solid #e5e7eb;
+  border-left: 1px solid #3b82f6;
+  .children_title_wrapper {
+    &:hover {
+      background-color: #f3f4f6;
+      cursor: pointer;
+    }
+  }
+
+  // Add slightly different styling for the nested table
+  :global {
+    table {
+      margin: 0;
+
+      th {
+        background-color: #f3f4f6 !important;
+        font-size: 11px;
+      }
+
+      td {
+        font-size: 11px;
+        padding: 8px;
+      }
+    }
+  }
+}
+
 /* Pagination wrapper */
 .pagination__root__wrapper {
   position: sticky;

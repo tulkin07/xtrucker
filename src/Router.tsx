@@ -14,6 +14,7 @@ import { InvoicesLoader } from '@/pages/invoices/Invoices.loader';
 import { LoadManagerLoader } from '@/pages/load-management';
 import { MapViewLoader } from '@/pages/map-view';
 import { PlanningCalendarLoader } from '@/pages/planning-calendar';
+import { CreateDriverStatementLoader } from './pages/driver-statements/crud';
 import { LogBookLoader } from './pages/log-book';
 import { SafetyScheduleCalendarLoader } from './pages/safety-schedule-calendar';
 import { SafetyTasksLoader } from './pages/safety-tasks';
@@ -52,6 +53,7 @@ const AccountingDashboardLayout = lazy(
 const InvoicesPage = lazy(() => import('./pages/invoices'));
 const IncomeExpensePage = lazy(() => import('./pages/income-expense'));
 const DriverStatements = lazy(() => import('./pages/driver-statements'));
+const CreateDriverStatementPage = lazy(() => import('./pages/driver-statements/crud'));
 const CompaniesPage = lazy(() => import('./pages/companies'));
 const FileViewerPage = lazy(() => import('./pages/file-viewer'));
 
@@ -231,6 +233,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<DriverStatementsLoader />}>
             <DriverStatements />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'driver-statement/create',
+        element: (
+          <Suspense fallback={<CreateDriverStatementLoader />}>
+            <CreateDriverStatementPage />
           </Suspense>
         ),
       },

@@ -9,4 +9,5 @@ export const INPUT_LABEL = {
 
 export const FORM_INPUT = {
   border: '1px solid #D1D5DB',
+  borderRadius: 6,
 };

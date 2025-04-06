@@ -1,4 +1,4 @@
-import { IInvoiceFactoring } from './interfaces';
+import { ICompanyValues, IDriverStatements, IInvoiceFactoring } from './interfaces';
 
 export const USER_DATA_KEY = 'userdata-moneymentor';
 
@@ -226,5 +226,185 @@ export const INVOICE_FACTORING: IInvoiceFactoring[] = [
     amount: 8_437.44,
     status: 'rejected',
     comment: 'Rejected load',
+  },
+];
+
+export const COMPANY_DATA: ICompanyValues[] = [
+  {
+    id: 1,
+    name: 'Seamans Furniture',
+    mc_number: 100462,
+    dot_number: 'Chris Glasser',
+    status: 'active',
+    children: [
+      {
+        title: 'Company documents',
+        data: [
+          { file_name: 'MC_Certificate.pdf', type: 'MC Certificate', updated_at: 'Feb 19 04:03' },
+          { file_name: 'Insurance.pdf', type: 'Insurance', updated_at: 'Feb 20 04:03' },
+        ],
+      },
+      {
+        title: 'Driver documents',
+        data: [
+          { file_name: 'MC_Certificate.pdf', type: 'MC Certificate', updated_at: 'Feb 19 04:03' },
+          { file_name: 'Insurance.pdf', type: 'Insurance', updated_at: 'Feb 20 04:03' },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Tam's Stationers",
+    mc_number: 100463,
+    dot_number: 'Mark Douglas',
+    status: 'active',
+    children: [
+      {
+        title: 'Company documents',
+        data: [
+          { file_name: 'MC_Certificate.pdf', type: 'MC Certificate', updated_at: 'Feb 19 04:03' },
+          { file_name: 'Insurance.pdf', type: 'Insurance', updated_at: 'Feb 20 04:03' },
+        ],
+      },
+    ],
+    id: 2,
+  },
+  {
+    name: 'Seamans Furniture',
+    mc_number: 100464,
+    dot_number: 'Grace Jane',
+    status: 'active',
+    children: [
+      {
+        title: 'Company documents',
+        data: [
+          { file_name: 'MC_Certificate.pdf', type: 'MC Certificate', updated_at: 'Feb 19 04:03' },
+          { file_name: 'Insurance.pdf', type: 'Insurance', updated_at: 'Feb 20 04:03' },
+        ],
+      },
+    ],
+    id: 3,
+  },
+  {
+    name: 'Seamans Furniture',
+    mc_number: 100465,
+    dot_number: 'Mcc Coleman',
+    status: 'inactive',
+    children: [
+      {
+        title: 'Company documents',
+        data: [
+          { file_name: 'MC_Certificate.pdf', type: 'MC Certificate', updated_at: 'Feb 19 04:03' },
+          { file_name: 'Insurance.pdf', type: 'Insurance', updated_at: 'Feb 20 04:03' },
+        ],
+      },
+    ],
+    id: 4,
+  },
+  {
+    name: 'Seamans Furniture',
+    mc_number: 100462,
+    dot_number: 'Chris Glasser',
+    status: 'active',
+    children: [
+      {
+        title: 'Company documents',
+        data: [
+          { file_name: 'MC_Certificate.pdf', type: 'MC Certificate', updated_at: 'Feb 19 04:03' },
+          { file_name: 'Insurance.pdf', type: 'Insurance', updated_at: 'Feb 20 04:03' },
+        ],
+      },
+    ],
+    id: 5,
+  },
+];
+
+export const DRIVER_STATEMENTS_DATA: IDriverStatements[] = [
+  {
+    id: 1,
+    name: 'Patricia Sanders',
+    week_range: 'Mar 4 - Mar 10',
+    total_earn: '$7,200',
+    deductions: '$200',
+    net_pay: '$1,613.80',
+    status: 'not_created',
+  },
+  {
+    id: 2,
+    name: 'Patricia Sanders',
+    week_range: 'Mar 4 - Mar 10',
+    total_earn: '$7,200',
+    deductions: '$200',
+    net_pay: '$1,613.80',
+    status: 'unpaid',
+  },
+  {
+    id: 3,
+    name: 'Patricia Sanders',
+    week_range: 'Mar 4 - Mar 10',
+    total_earn: '$7,200',
+    deductions: '$200',
+    net_pay: '$1,613.80',
+    status: 'paid',
+  },
+  {
+    id: 4,
+    name: 'Patricia Sanders',
+    week_range: 'Mar 4 - Mar 10',
+    total_earn: '$7,200',
+    deductions: '$200',
+    net_pay: '$1,613.80',
+    status: 'rejected',
+  },
+  {
+    id: 5,
+    name: 'Patricia Sanders',
+    week_range: 'Mar 4 - Mar 10',
+    total_earn: '$7,200',
+    deductions: '$200',
+    net_pay: '$1,613.80',
+    status: 'not_created',
+  },
+  {
+    id: 6,
+    name: 'Patricia Sanders',
+    week_range: 'Mar 4 - Mar 10',
+    total_earn: '$7,200',
+    deductions: '$200',
+    net_pay: '$1,613.80',
+    status: 'not_created',
+  },
+];
+
+export const INCOME_EXPENSE_CHART_DATA = [
+  {
+    date: 'Mar 22',
+    Apples: 2890,
+    Oranges: 2338,
+    Tomatoes: 2452,
+  },
+  {
+    date: 'Mar 23',
+    Apples: 2756,
+    Oranges: 2103,
+    Tomatoes: 2402,
+  },
+  {
+    date: 'Mar 24',
+    Apples: 3322,
+    Oranges: 986,
+    Tomatoes: 1821,
+  },
+  {
+    date: 'Mar 25',
+    Apples: 3470,
+    Oranges: 2108,
+    Tomatoes: 2809,
+  },
+  {
+    date: 'Mar 26',
+    Apples: 3129,
+    Oranges: 1726,
+    Tomatoes: 2290,
   },
 ];

@@ -60,3 +60,31 @@ export interface IInvoiceFactoring {
   status: 'ready_for_factor' | 'sent_to_factoring' | 'factored' | 'rejected';
   comment: string;
 }
+
+export interface IICompanyValueChildren {
+  file_name: string;
+  type: string;
+  updated_at: string;
+}
+
+export interface ICompanyValues {
+  id: number;
+  name: string;
+  mc_number: number;
+  dot_number: string;
+  status: 'active' | 'inactive';
+  children: {
+    title: string;
+    data: IICompanyValueChildren[];
+  }[];
+}
+
+export interface IDriverStatements {
+  id: number;
+  name: string;
+  week_range: string;
+  total_earn: string;
+  deductions: string;
+  net_pay: string;
+  status: 'not_created' | 'unpaid' | 'paid' | 'rejected';
+}
