@@ -30,6 +30,7 @@ const TopbarLayout: React.FC<TopbarLayoutProps> = (props) => {
           miw={278}
           h={36}
           classNames={{ input: classes.search_input }}
+          radius="6px 0 0 6px"
         />
         <ActionIcon
           size="lg"

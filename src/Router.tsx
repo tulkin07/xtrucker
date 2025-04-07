@@ -14,6 +14,7 @@ import { InvoicesLoader } from '@/pages/invoices/Invoices.loader';
 import { LoadManagerLoader } from '@/pages/load-management';
 import { MapViewLoader } from '@/pages/map-view';
 import { PlanningCalendarLoader } from '@/pages/planning-calendar';
+import AdminDashboardLayout from './components/layout/admin/AdminDashboard.layout';
 import { CreateDriverStatementLoader } from './pages/driver-statements/crud';
 import { LogBookLoader } from './pages/log-book';
 import { SafetyScheduleCalendarLoader } from './pages/safety-schedule-calendar';
@@ -305,6 +306,17 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: '/admin-dashboard',
+    element: (
+      <Suspense fallback="">
+        <ProtectedRoute>
+          <AdminDashboardLayout />
+        </ProtectedRoute>
+      </Suspense>
+    ),
+    children: [],
   },
   {
     path: '/onboarding',

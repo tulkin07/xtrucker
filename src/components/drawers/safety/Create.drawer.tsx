@@ -1,5 +1,5 @@
+import { IconCalendarFilled } from '@tabler/icons-react';
 import {
-  Box,
   Drawer,
   DrawerRootProps,
   FileInput,
@@ -11,9 +11,8 @@ import {
   Text,
   TextInput,
 } from '@mantine/core';
-import Icon from '@/components/icons/Icon.component';
 import { DateInput } from '@mantine/dates';
-import { IconCalendarFilled } from '@tabler/icons-react';
+import Icon from '@/components/icons/Icon.component';
 
 type CreateDrawerProps = {
   footer: React.ReactNode;
@@ -88,13 +87,28 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
             <Select radius={6} placeholder="Type..." label="Driver" />
           </Grid.Col>
           <Grid.Col span={12}>
-            <DateInput radius={6} rightSection={<IconCalendarFilled  />} placeholder="Type..." label="Date" />
+            <DateInput
+              radius={6}
+              rightSection={<IconCalendarFilled />}
+              placeholder="Type..."
+              label="Date"
+            />
           </Grid.Col>
           <Grid.Col span={12}>
-            <DateInput radius={6} rightSection={<IconCalendarFilled  />} placeholder="Type..." label="Expires" />
+            <DateInput
+              radius={6}
+              rightSection={<IconCalendarFilled />}
+              placeholder="Type..."
+              label="Expires"
+            />
           </Grid.Col>
           <Grid.Col span={12}>
-            <DateInput radius={6} rightSection={<IconCalendarFilled  />} placeholder="Type..." label="Previous Date" />
+            <DateInput
+              radius={6}
+              rightSection={<IconCalendarFilled />}
+              placeholder="Type..."
+              label="Previous Date"
+            />
           </Grid.Col>
           <Grid.Col span={12}>
             <Select radius={6} placeholder="Select..." label="Frequency" />
@@ -115,12 +129,8 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
             <TextInput radius={6} placeholder="Type..." label="Note" />
           </Grid.Col>
           <Grid.Col span={12}>
-          <FileInput
-            label="File input"
-            placeholder="Input placeholder"
-            />
+            <FileInput label="File input" placeholder="Input placeholder" />
           </Grid.Col>
-
         </Grid>
         {/* <Text fz={20} lh="140%" fw={700}>
           Other information
