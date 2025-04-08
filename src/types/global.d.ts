@@ -9,7 +9,7 @@ type PathsToStringProps<T> = T extends object
 interface Column<T> {
   key: PathsToStringProps<T> | 'actions'; // This allows both nested paths and 'actions'
   label: (() => React.ReactNode) | string;
-  width?: number;
+  width?: number | string;
   render?: (item: T) => React.ReactNode;
   sortable?: boolean;
 }

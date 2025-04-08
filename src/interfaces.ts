@@ -88,3 +88,23 @@ export interface IDriverStatements {
   net_pay: string;
   status: 'not_created' | 'unpaid' | 'paid' | 'rejected';
 }
+
+export interface IEmployee {
+  name: string;
+  phone_number: string;
+  email: string;
+  role: string;
+  id: number;
+}
+
+export interface IPermission {
+  name: string;
+  values: ('create' | 'read' | 'update' | 'delete')[];
+  id: number;
+}
+
+export interface IRole {
+  id: number;
+  name: string;
+  permissions: IPermission[];
+}

@@ -366,6 +366,7 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
                         key={`${item.id}-${String(column.key)}`}
                         className="whitespace-nowrap"
                         style={{
+                          width: column.width ?? 'auto',
                           ...(column.key === 'actions' && { width: '32px' }),
                           whiteSpace: 'nowrap',
                           ...(bgColor && {

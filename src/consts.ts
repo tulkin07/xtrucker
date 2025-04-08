@@ -1,4 +1,11 @@
-import { ICompanyValues, IDriverStatements, IInvoiceFactoring } from './interfaces';
+import {
+  ICompanyValues,
+  IDriverStatements,
+  IEmployee,
+  IInvoiceFactoring,
+  IPermission,
+  IRole,
+} from './interfaces';
 
 export const USER_DATA_KEY = 'userdata-moneymentor';
 
@@ -406,5 +413,194 @@ export const INCOME_EXPENSE_CHART_DATA = [
     Apples: 3129,
     Oranges: 1726,
     Tomatoes: 2290,
+  },
+];
+
+export const EMPLOYEES_DATA: IEmployee[] = [
+  {
+    name: 'James Hall',
+    phone_number: '(406) 382-2670',
+    email: 'james_hall@gmail.com',
+    role: 'Super admin',
+    id: 1,
+  },
+  {
+    name: 'Iva Ryan',
+    phone_number: '(907) 248-8330',
+    email: 'rodger913@aol.com',
+    role: 'Dispatcher',
+    id: 2,
+  },
+  {
+    name: 'Kurt Bates',
+    phone_number: '(830) 556-6651',
+    email: 'stephanienicol@outlook.com',
+    role: 'Accounting',
+    id: 3,
+  },
+  {
+    name: 'Daniel Hamilton',
+    phone_number: '(504) 896-6913',
+    email: 'eddie_lake@gmail.com',
+    role: 'Safety',
+    id: 4,
+  },
+  {
+    name: 'Rodger Struck',
+    phone_number: '(636) 296-7838',
+    email: 'Daniel_hamilton@aol.com',
+    role: 'Maintenance',
+    id: 5,
+  },
+];
+
+export const ROLES_DATA: IRole[] = [
+  {
+    id: 1,
+    name: 'Super admin',
+    permissions: [
+      {
+        name: 'Load management',
+        values: ['create', 'update', 'delete', 'read'],
+        id: 1,
+      },
+      {
+        name: 'Load board',
+        values: ['read', 'delete'],
+        id: 2,
+      },
+      {
+        name: 'Drivers',
+        values: ['create', 'read'],
+        id: 3,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: 'Dispatcher',
+    permissions: [
+      {
+        name: 'Load management',
+        values: ['create', 'update', 'delete', 'read'],
+        id: 1,
+      },
+      {
+        name: 'Load board',
+        values: ['read', 'create'],
+        id: 2,
+      },
+      {
+        name: 'Drivers',
+        values: ['create', 'read', 'update'],
+        id: 3,
+      },
+    ],
+  },
+  {
+    id: 3,
+    name: 'Accounting',
+    permissions: [
+      {
+        name: 'Load management',
+        values: ['create', 'update', 'delete', 'read'],
+        id: 1,
+      },
+      {
+        name: 'Load board',
+        values: ['read'],
+        id: 2,
+      },
+      {
+        name: 'Drivers',
+        values: ['create', 'read'],
+        id: 3,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: 'Safety',
+    permissions: [
+      {
+        name: 'Load management',
+        values: ['create', 'update', 'delete', 'read'],
+        id: 1,
+      },
+      {
+        name: 'Load board',
+        values: ['read'],
+        id: 2,
+      },
+      {
+        name: 'Drivers',
+        values: ['create', 'read'],
+        id: 3,
+      },
+    ],
+  },
+  {
+    id: 4,
+    name: 'Maintenance',
+    permissions: [
+      {
+        name: 'Load management',
+        values: ['create', 'update', 'delete', 'read'],
+        id: 1,
+      },
+      {
+        name: 'Load board',
+        values: ['read'],
+        id: 2,
+      },
+      {
+        name: 'Drivers',
+        values: ['create', 'read'],
+        id: 3,
+      },
+    ],
+  },
+];
+
+export const PERMISSIONS_DATA: IPermission[] = [
+  {
+    id: 1,
+    name: 'Loads',
+    values: [],
+  },
+  {
+    id: 2,
+    name: 'Load board',
+    values: [],
+  },
+  {
+    id: 3,
+    name: 'Planning calendar',
+    values: [],
+  },
+  {
+    id: 4,
+    name: 'Drivers',
+    values: [],
+  },
+  {
+    id: 5,
+    name: 'Brokers',
+    values: [],
+  },
+  {
+    id: 6,
+    name: 'Invoice & Factoring',
+    values: [],
+  },
+  {
+    id: 7,
+    name: 'Income & Expense',
+    values: [],
+  },
+  {
+    id: 8,
+    name: 'Driver Statements',
+    values: [],
   },
 ];

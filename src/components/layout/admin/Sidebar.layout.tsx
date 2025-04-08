@@ -21,7 +21,7 @@ const SidebarLayout = () => {
                 {
                   icon: 'i_user_shadow',
                   label: 'Employees',
-                  path: '/admin-dashboard/employees',
+                  path: '/admin-dashboard',
                 },
                 { icon: 'i_user_settings', label: 'Roles', path: '/admin-dashboard/roles' },
               ],

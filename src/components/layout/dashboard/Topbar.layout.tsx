@@ -7,7 +7,8 @@ import PopoverComponent from './extra-components/Popover.component';
 import ProfilePopover from './extra-components/Profile.popover';
 
 type TopbarLayoutProps = {
-  title: string;
+  title: React.ReactNode | string;
+  disable_search?: boolean;
 };
 
 const TopbarLayout: React.FC<TopbarLayoutProps> = (props) => {
@@ -19,29 +20,35 @@ const TopbarLayout: React.FC<TopbarLayoutProps> = (props) => {
       className={classes.topbar_wrapper}
       w="calc(100% - 321px)"
     >
-      <Text fz={20} fw={700} lh="140%">
-        {props.title}
-      </Text>
-      <Flex className={classes.topbar_searchbar}>
-        <TextInput
-          size="sm"
-          variant="default"
-          placeholder="Search for anything..."
-          miw={278}
-          h={36}
-          classNames={{ input: classes.search_input }}
-          radius="6px 0 0 6px"
-        />
-        <ActionIcon
-          size="lg"
-          variant="outline"
-          color="#E5E7EB"
-          h={36}
-          className={classes.search_btn}
-        >
-          <Icon icon="i_search" width="16px" height="16px" />
-        </ActionIcon>
-      </Flex>
+      {typeof props.title === 'string' ? (
+        <Text fz={20} fw={700} lh="140%">
+          {props.title}
+        </Text>
+      ) : (
+        props.title
+      )}
+      {!props.disable_search && (
+        <Flex className={classes.topbar_searchbar}>
+          <TextInput
+            size="sm"
+            variant="default"
+            placeholder="Search for anything..."
+            miw={278}
+            h={36}
+            classNames={{ input: classes.search_input }}
+            radius="6px 0 0 6px"
+          />
+          <ActionIcon
+            size="lg"
+            variant="outline"
+            color="#E5E7EB"
+            h={36}
+            className={classes.search_btn}
+          >
+            <Icon icon="i_search" width="16px" height="16px" />
+          </ActionIcon>
+        </Flex>
+      )}
       <Group align="center">
         <PopoverComponent
           popover={{ position: 'bottom-end', shadow: 'md' }}

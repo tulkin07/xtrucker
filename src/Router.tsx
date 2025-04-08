@@ -14,9 +14,11 @@ import { InvoicesLoader } from '@/pages/invoices/Invoices.loader';
 import { LoadManagerLoader } from '@/pages/load-management';
 import { MapViewLoader } from '@/pages/map-view';
 import { PlanningCalendarLoader } from '@/pages/planning-calendar';
-import AdminDashboardLayout from './components/layout/admin/AdminDashboard.layout';
 import { CreateDriverStatementLoader } from './pages/driver-statements/crud';
+import EmployeesPage, { EmployeesLoader } from './pages/employees';
 import { LogBookLoader } from './pages/log-book';
+import RolesPage, { RolesLoader } from './pages/roles';
+import RoleCreatePage from './pages/roles/RoleCreate.page';
 import { SafetyScheduleCalendarLoader } from './pages/safety-schedule-calendar';
 import { SafetyTasksLoader } from './pages/safety-tasks';
 import { SafetyTrucksLoader } from './pages/safety-trucks';
@@ -65,6 +67,8 @@ const LogBookPage = lazy(() => import('./pages/log-book'));
 const SafetyTasksPage = lazy(() => import('./pages/safety-tasks'));
 const SafetyTrucksPage = lazy(() => import('./pages/safety-trucks'));
 const SafetyScheduleCalendarPage = lazy(() => import('./pages/safety-schedule-calendar'));
+
+const AdminDashboardLayout = lazy(() => import('./components/layout/admin/AdminDashboard.layout'));
 
 const router = createBrowserRouter([
   {
@@ -316,7 +320,32 @@ const router = createBrowserRouter([
         </ProtectedRoute>
       </Suspense>
     ),
-    children: [],
+    children: [
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<EmployeesLoader />}>
+            <EmployeesPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'roles',
+        element: (
+          <Suspense fallback={<RolesLoader />}>
+            <RolesPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'roles/create',
+        element: (
+          <Suspense fallback="">
+            <RoleCreatePage />
+          </Suspense>
+        ),
+      },
+    ],
   },
   {
     path: '/onboarding',
