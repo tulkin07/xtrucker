@@ -45,6 +45,7 @@ interface ModifiedTableComponentProps<T> {
   total?: number;
   onPageChange?: (page: number) => void;
   onPageSizeChange?: (pageSize: string | null) => void;
+  rowClick?: (type: 'create' | 'view', value: number) => void;
   loading?: boolean;
   emptyMessage?: string;
   paperProps?: PaperProps;
@@ -59,6 +60,7 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
   total,
   onPageChange,
   onPageSizeChange,
+  rowClick,
   loading = false,
   paperProps = {},
   emptyMessage = 'No data found',
@@ -174,7 +176,15 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
               console.log(bgColor);
 
               return (
-                <Table.Tr key={item.id} bg="red.1">
+                <Table.Tr
+                  key={item.id}
+                  bg="red.1"
+                  onClick={() => {
+                    if (rowClick) {
+                      rowClick('view', typeof item.id === 'string' ? parseInt(item.id) : item.id);
+                    }
+                  }}
+                >
                   {columns.map((column) => (
                     <Table.Td
                       bg={bgColor?.bg ?? '#fff'}
