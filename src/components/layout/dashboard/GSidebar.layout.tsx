@@ -9,6 +9,7 @@ const GSidebarLayout = () => {
     { icon: 'i_calculator', tooltip: 'Accounting', url: '/accounting-dashboard' },
     { icon: 'i_truck_line', tooltip: 'Fleet management', url: '/fleet-dashboard' },
     { icon: 'i_shield', tooltip: 'Safety', url: '/safety-dashboard' },
+    { icon: 'i_vip_crown', tooltip: 'Admin panel', url: '/admin-dashboard' },
   ];
   return (
     <Stack className={classes.layout_root_wrapper}>

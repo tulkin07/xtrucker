@@ -118,7 +118,6 @@ const SafetyScheduleCalendarPage = () => {
                 <Select radius={6} placeholder="Unit" />
               </Group>
             )}
-
             <Group>
               <Button
                 color="sky.8"
@@ -174,6 +173,7 @@ const SafetyScheduleCalendarPage = () => {
                   );
                 },
               },
+
               {
                 label: 'Order#',
                 key: 'order',
@@ -338,6 +338,7 @@ const SafetyScheduleCalendarPage = () => {
           </Group>
         }
       />
+
       {viewData && (
         <ViewDrawer
           opened={viewDrawerOpen}

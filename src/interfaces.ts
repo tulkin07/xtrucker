@@ -108,3 +108,51 @@ export interface ISafetyExpirationDate {
     total?: number;
   }[];
 }
+
+export interface IICompanyValueChildren {
+  file_name: string;
+  type: string;
+  updated_at: string;
+}
+
+export interface ICompanyValues {
+  id: number;
+  name: string;
+  mc_number: number;
+  dot_number: string;
+  status: 'active' | 'inactive';
+  children: {
+    title: string;
+    data: IICompanyValueChildren[];
+  }[];
+}
+
+export interface IDriverStatements {
+  id: number;
+  name: string;
+  week_range: string;
+  total_earn: string;
+  deductions: string;
+  net_pay: string;
+  status: 'not_created' | 'unpaid' | 'paid' | 'rejected';
+}
+
+export interface IEmployee {
+  name: string;
+  phone_number: string;
+  email: string;
+  role: string;
+  id: number;
+}
+
+export interface IPermission {
+  name: string;
+  values: ('create' | 'read' | 'update' | 'delete')[];
+  id: number;
+}
+
+export interface IRole {
+  id: number;
+  name: string;
+  permissions: IPermission[];
+}

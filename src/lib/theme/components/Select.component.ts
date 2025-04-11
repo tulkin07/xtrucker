@@ -1,15 +1,11 @@
+import classes from './styles/Select.module.scss';
 import { Select } from '@mantine/core';
-import { FORM_INPUT, INPUT_LABEL } from './constant';
 
 export const SelectComponent = Select.extend({
-  styles() {
+  classNames() {
     return {
-      label: {
-        ...INPUT_LABEL,
-      },
-      input: {
-        ...FORM_INPUT,
-      },
+      label: classes.text_input_label,
+      input: classes.text_input_input,
     };
   },
 });

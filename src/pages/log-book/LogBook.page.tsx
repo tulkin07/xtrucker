@@ -82,7 +82,6 @@ const LogBookPage = () => {
       return prevParams;
     });
   };
-
   useEffect(() => {
     const viewId = searchParams.get('view');
     if (viewId) {
@@ -94,7 +93,7 @@ const LogBookPage = () => {
   return (
     <>
       <Stack p="16px 8px 16px 8px" h="100%">
-        <TopbarLayout title="Log Book" />
+        <TopbarLayout title="Safety Tickets" />
         <Stack component="main" gap={16}>
           <Group justify="space-between">
             <Group>
@@ -103,7 +102,12 @@ const LogBookPage = () => {
               <Select radius={6} placeholder="Form&Manager" />
             </Group>
             <Group>
-              <Button color="sky.8" radius={10} leftSection={<IconDownload />}>
+              <Button
+                color="sky.8"
+                radius={10}
+                onClick={() => handleLoadDrawer('create', 'create')}
+                leftSection={<IconDownload />}
+              >
                 Download
               </Button>
             </Group>
@@ -127,6 +131,18 @@ const LogBookPage = () => {
                   return (
                     <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
                       {item.date.getDate() ?? '---'}
+                    </Text>
+                  );
+                },
+              },
+              {
+                label: 'Driver',
+                key: 'driver',
+                sortable: true,
+                render(item) {
+                  return (
+                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
+                      {item.driver ?? '---'}
                     </Text>
                   );
                 },
@@ -184,38 +200,6 @@ const LogBookPage = () => {
         </Stack>
       </Stack>
       <BottomBreadcrumbComponent items={[{ title: 'Load management', href: '#' }]} />
-      {/* <CreateDrawer
-        opened={create_drawer_open}
-        onClose={() => handleLoadDrawer('create', 'create', true)}
-        position="right"
-        w={700}
-        footer={
-          <Group
-            gap={8}
-            pt={16}
-            pb={16}
-            pos="sticky"
-            w="calc(100%)"
-            justify="end"
-            bottom={0}
-            left={32}
-            bg="white"
-            style={{ zIndex: 10, borderTop: '1px solid var(--mantine-color-stone-1)' }}
-          >
-            <Button
-              radius={10}
-              color="gray.2"
-              c="neutral.9"
-              onClick={() => handleLoadDrawer('create', 'create', true)}
-            >
-              Cancel
-            </Button>
-            <Button radius={10} color="sky.8">
-              Create Task
-            </Button>
-          </Group>
-        }
-      /> */}
 
       {viewData && (
         <ViewDrawer

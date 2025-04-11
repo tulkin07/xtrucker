@@ -1,5 +1,5 @@
 import { IconUpload } from '@tabler/icons-react';
-import { FileButton, Group, Stack, Text } from '@mantine/core';
+import { FileButton, Group, Stack, Text, FileInput } from '@mantine/core';
 import BottomBreadcrumbComponent from '@/components/bottom-breadcrumb/BottomBreadcrumb.component';
 import TopbarLayout from '@/components/layout/dashboard/Topbar.layout';
 import ModifiedTableComponent from '@/components/table';

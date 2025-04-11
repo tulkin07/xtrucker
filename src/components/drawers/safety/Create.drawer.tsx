@@ -1,4 +1,4 @@
-import { IconCalendarFilled, IconFile } from '@tabler/icons-react';
+import { IconCalendarFilled, IconCalendarFilled, IconFile } from '@tabler/icons-react';
 import {
   Box,
   Button,
@@ -152,6 +152,16 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
                 )}
               </FileButton>
             </Flex>
+          </Grid.Col>
+        </Grid>
+        </Text>
+        <Grid>
+          <Grid.Col span={6}>
+            <TextInput radius={6} placeholder="Type..." label="MC number (Motor carrier)" />
+          </Grid.Col>
+          <Grid.Col span={6} />
+          <Grid.Col span={6}>
+            <TextInput radius={6} placeholder="Type..." label="Credit rating" />
           </Grid.Col>
         </Grid>
       </Stack>

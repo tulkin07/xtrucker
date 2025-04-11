@@ -14,7 +14,11 @@ import { InvoicesLoader } from '@/pages/invoices/Invoices.loader';
 import { LoadManagerLoader } from '@/pages/load-management';
 import { MapViewLoader } from '@/pages/map-view';
 import { PlanningCalendarLoader } from '@/pages/planning-calendar';
+import { CreateDriverStatementLoader } from './pages/driver-statements/crud';
+import EmployeesPage, { EmployeesLoader } from './pages/employees';
 import { LogBookLoader } from './pages/log-book';
+import RolesPage, { RolesLoader } from './pages/roles';
+import RoleCreatePage from './pages/roles/RoleCreate.page';
 import { SafetyScheduleCalendarLoader } from './pages/safety-schedule-calendar';
 import { SafetyTasksLoader } from './pages/safety-tasks';
 import { SafetyTrucksLoader } from './pages/safety-trucks';
@@ -52,6 +56,7 @@ const AccountingDashboardLayout = lazy(
 const InvoicesPage = lazy(() => import('./pages/invoices'));
 const IncomeExpensePage = lazy(() => import('./pages/income-expense'));
 const DriverStatements = lazy(() => import('./pages/driver-statements'));
+const CreateDriverStatementPage = lazy(() => import('./pages/driver-statements/crud'));
 const CompaniesPage = lazy(() => import('./pages/companies'));
 const FileViewerPage = lazy(() => import('./pages/file-viewer'));
 
@@ -62,6 +67,8 @@ const LogBookPage = lazy(() => import('./pages/log-book'));
 const SafetyTasksPage = lazy(() => import('./pages/safety-tasks'));
 const SafetyTrucksPage = lazy(() => import('./pages/safety-trucks'));
 const SafetyScheduleCalendarPage = lazy(() => import('./pages/safety-schedule-calendar'));
+
+const AdminDashboardLayout = lazy(() => import('./components/layout/admin/AdminDashboard.layout'));
 
 const router = createBrowserRouter([
   {
@@ -235,6 +242,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: 'driver-statement/create',
+        element: (
+          <Suspense fallback={<CreateDriverStatementLoader />}>
+            <CreateDriverStatementPage />
+          </Suspense>
+        ),
+      },
+      {
         path: 'companies',
         element: (
           <Suspense fallback={<CompaniesLoader />}>
@@ -291,6 +306,42 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<SafetyScheduleCalendarLoader />}>
             <SafetyScheduleCalendarPage />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+  {
+    path: '/admin-dashboard',
+    element: (
+      <Suspense fallback="">
+        <ProtectedRoute>
+          <AdminDashboardLayout />
+        </ProtectedRoute>
+      </Suspense>
+    ),
+    children: [
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<EmployeesLoader />}>
+            <EmployeesPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'roles',
+        element: (
+          <Suspense fallback={<RolesLoader />}>
+            <RolesPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'roles/create',
+        element: (
+          <Suspense fallback="">
+            <RoleCreatePage />
           </Suspense>
         ),
       },
