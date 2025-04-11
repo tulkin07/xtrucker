@@ -46,6 +46,7 @@ interface ModifiedTableComponentProps<T> {
   total?: number;
   onPageChange?: (page: number) => void;
   onPageSizeChange?: (pageSize: string | null) => void;
+  rowClick?: (type: 'create' | 'view', value: number) => void;
   loading?: boolean;
   emptyMessage?: string;
   paperProps?: PaperProps;
@@ -67,6 +68,7 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
   total,
   onPageChange,
   onPageSizeChange,
+  rowClick,
   loading = false,
   paperProps = {},
   emptyMessage = 'No data found',
@@ -347,41 +349,27 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
                 ];
 
               return (
-                <>
-                  <Table.Tr
-                    key={item.id}
-                    bg="red.1"
-                    style={{ cursor: getChildRows ? 'pointer' : 'default' }}
-                    onClick={(e) => {
-                      // Don't trigger row expansion when clicking action menu
-                      if ((e.target as HTMLElement).closest('.mantine-Menu-root')) {
-                        return;
-                      }
-                      getChildRows && toggleRow(item.id);
-                    }}
-                  >
-                    {columns.map((column) => (
-                      <Table.Td
-                        bg={bgColor?.bg ?? '#fff'}
-                        key={`${item.id}-${String(column.key)}`}
-                        className="whitespace-nowrap"
-                        style={{
-                          width: column.width ?? 'auto',
-                          ...(column.key === 'actions' && { width: '32px' }),
-                          whiteSpace: 'nowrap',
-                          ...(bgColor && {
-                            backgroundColor: bgColor.bg,
-                          }),
-                        }}
-                      >
-                        {renderCell(item, column)}
-                      </Table.Td>
-                    ))}
-                  </Table.Tr>
-                  {getChildRows && (
-                    <Table.Tr
-                      key={`${item.id}-expanded`}
-                      style={{ display: 'table-row', border: 'none' }}
+                <Table.Tr
+                  key={item.id}
+                  bg="red.1"
+                  onClick={() => {
+                    if (rowClick) {
+                      rowClick('view', typeof item.id === 'string' ? parseInt(item.id) : item.id);
+                    }
+                  }}
+                >
+                  {columns.map((column) => (
+                    <Table.Td
+                      bg={bgColor?.bg ?? '#fff'}
+                      key={`${item.id}-${String(column.key)}`}
+                      className="whitespace-nowrap"
+                      style={{
+                        ...(column.key === 'actions' && { width: '32px' }),
+                        whiteSpace: 'nowrap',
+                        ...(bgColor && {
+                          backgroundColor: bgColor.bg,
+                        }),
+                      }}
                     >
                       <Table.Td
                         colSpan={columns.length}

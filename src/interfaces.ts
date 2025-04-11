@@ -61,6 +61,54 @@ export interface IInvoiceFactoring {
   comment: string;
 }
 
+export interface ISafetyTasks {
+  id: number;
+  type: string;
+  previous: Date;
+  date: Date;
+  expires: Date;
+  frequency: 'weekly' | 'monthly' | 'yearly';
+  driver: string;
+  truck: number;
+  notes: string;
+  attachments: string;
+}
+
+export interface ISafetyUnit {
+  id: number;
+  name: string;
+}
+export interface ISafetyOdometer {
+  miles: number;
+  hours: number;
+}
+
+export interface IBillTo {
+  name: string;
+  carrier: string;
+}
+
+export type SafetyStatus = 'unpaid' | 'progress' | 'paid';
+
+export interface ISafetyExpirationDate {
+  id: number;
+  order: number;
+  unit: ISafetyUnit;
+  odometer: ISafetyOdometer;
+  repairDate: Date;
+  totalCost: number;
+  billTo: IBillTo;
+  status: SafetyStatus;
+  paymentData: {
+    id: number;
+    serviceType: string;
+    quantity: number;
+    price: number;
+    date: Date;
+    total?: number;
+  }[];
+}
+
 export interface IICompanyValueChildren {
   file_name: string;
   type: string;

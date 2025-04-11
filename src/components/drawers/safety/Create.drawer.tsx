@@ -1,8 +1,13 @@
-import { IconCalendarFilled } from '@tabler/icons-react';
+import { IconCalendarFilled, IconCalendarFilled, IconFile } from '@tabler/icons-react';
 import {
+  Box,
+  Button,
   Drawer,
+  DrawerProps,
   DrawerRootProps,
+  FileButton,
   FileInput,
+  Flex,
   Grid,
   Group,
   ScrollArea,
@@ -16,7 +21,7 @@ import Icon from '@/components/icons/Icon.component';
 
 type CreateDrawerProps = {
   footer: React.ReactNode;
-} & DrawerRootProps;
+} & DrawerProps;
 
 const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
   return (
@@ -41,7 +46,8 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
         </Group>
       }
       position="right"
-      size={700}
+      size={props.size ?? 700}
+      w={props.w}
       opened={props.opened}
       onClose={props.onClose}
       scrollAreaComponent={ScrollArea.Autosize}
@@ -74,6 +80,7 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
         },
         onClick: props.onClose,
       }}
+      overlayProps={props.overlayProps}
     >
       <Stack gap={24}>
         <Text fz={20} lh="140%" fw={700}>
@@ -129,11 +136,24 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
             <TextInput radius={6} placeholder="Type..." label="Note" />
           </Grid.Col>
           <Grid.Col span={12}>
-            <FileInput label="File input" placeholder="Input placeholder" />
+            <Flex justify="space-between" align="center" p="md">
+              <Group>
+                <IconFile size={20} />
+                <Text fz={16} fw={400} lh={'140%'}>
+                  Upload invoice
+                </Text>
+              </Group>
+
+              <FileButton onChange={() => {}}>
+                {(props) => (
+                  <Button {...props} radius="md" color="sky.8">
+                    Upload
+                  </Button>
+                )}
+              </FileButton>
+            </Flex>
           </Grid.Col>
         </Grid>
-        {/* <Text fz={20} lh="140%" fw={700}>
-          Other information
         </Text>
         <Grid>
           <Grid.Col span={6}>
@@ -143,16 +163,7 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
           <Grid.Col span={6}>
             <TextInput radius={6} placeholder="Type..." label="Credit rating" />
           </Grid.Col>
-          <Grid.Col span={6} />
-          <Grid.Col span={6}>
-            <TextInput radius={6} placeholder="Type..." label="Federal Id" />
-          </Grid.Col>
-          <Grid.Col span={6} />
-          <Grid.Col span={6}>
-            <TextInput radius={6} placeholder="Type..." label="Factoring" />
-          </Grid.Col>
-          <Grid.Col span={6} />
-        </Grid> */}
+        </Grid>
       </Stack>
       {props.footer}
     </Drawer>

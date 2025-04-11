@@ -1,16 +1,76 @@
-import { useMemo } from 'react';
-import { IconDownload } from '@tabler/icons-react';
+import { useEffect, useMemo, useState } from 'react';
+import { IconArrowAutofitLeft, IconDownload } from '@tabler/icons-react';
 import { useSearchParams } from 'react-router-dom';
 import { Button, Group, Select, Stack, Text } from '@mantine/core';
 import BottomBreadcrumbComponent from '@/components/bottom-breadcrumb/BottomBreadcrumb.component';
-import CreateDrawer from '@/components/drawers/safety/Create.drawer';
+import ViewDrawer from '@/components/drawers/log-book/View.drawer';
 import TopbarLayout from '@/components/layout/dashboard/Topbar.layout';
 import ModifiedTableComponent from '@/components/table';
 
+interface ExampleDataProps {
+  id: number;
+  date: Date;
+  driver: string;
+  hoursDrove: Date;
+  violations: string;
+  formManager: string;
+  driverData: {
+    time: Date;
+    event: string;
+    status: string;
+    origin: string;
+    odometer: number;
+    engineHours: string;
+    id: number;
+  }[];
+}
+
+const exampleData: ExampleDataProps[] = [
+  {
+    id: 1,
+    date: new Date(),
+    driver: 'Patricia asdf',
+    hoursDrove: new Date(),
+    violations: 'violations',
+    formManager: 'Not certified',
+    driverData: [
+      {
+        time: new Date(),
+        event: 'Off duty',
+        status: 'active',
+        origin: '4mi SW from Fargo, ND',
+        odometer: 241,
+        engineHours: 'Kenneth Allen',
+        id: 141,
+      },
+      {
+        time: new Date(),
+        event: 'Off duty',
+        status: 'active',
+        origin: '4mi SW from Fargo, ND',
+        odometer: 241,
+        engineHours: 'Kenneth Allen',
+        id: 142,
+      },
+      {
+        time: new Date(),
+        event: 'Off duty',
+        status: 'active',
+        origin: '4mi SW from Fargo, ND',
+        odometer: 241,
+        engineHours: 'Kenneth Allen',
+        id: 143,
+      },
+    ],
+  },
+];
+
 const LogBookPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [viewData, setViewData] = useState<ExampleDataProps | null>(null);
 
-  const create_drawer_open = useMemo(() => Boolean(searchParams.get('create')), [searchParams]);
+  const viewDrawerOpen = useMemo(() => Boolean(searchParams.get('view')), [searchParams]);
+  const viewId = useMemo(() => searchParams.get('view'), [searchParams]);
 
   const handleLoadDrawer = (type: 'create' | 'view', value: 'create' | number, close?: boolean) => {
     setSearchParams((prevParams) => {
@@ -22,6 +82,13 @@ const LogBookPage = () => {
       return prevParams;
     });
   };
+  useEffect(() => {
+    const viewId = searchParams.get('view');
+    if (viewId) {
+      const data = exampleData.find((item) => item.id === parseInt(viewId));
+      setViewData(data || null);
+    }
+  }, [viewDrawerOpen]);
 
   return (
     <>
@@ -54,16 +121,8 @@ const LogBookPage = () => {
                 overflow: 'auto',
               },
             }}
-            data={[
-              {
-                id: 1,
-                date: new Date(),
-                driver: 'Patricia asdf',
-                hoursDrove: new Date(),
-                violations: 'violations',
-                formManager: 'Not certified',
-              },
-            ]}
+            rowClick={handleLoadDrawer}
+            data={exampleData}
             columns={[
               {
                 label: 'Date',
@@ -72,6 +131,18 @@ const LogBookPage = () => {
                   return (
                     <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
                       {item.date.getDate() ?? '---'}
+                    </Text>
+                  );
+                },
+              },
+              {
+                label: 'Driver',
+                key: 'driver',
+                sortable: true,
+                render(item) {
+                  return (
+                    <Text fz={12} fw={400} lh="140%" c="#0A0A0A">
+                      {item.driver ?? '---'}
                     </Text>
                   );
                 },
@@ -129,38 +200,116 @@ const LogBookPage = () => {
         </Stack>
       </Stack>
       <BottomBreadcrumbComponent items={[{ title: 'Load management', href: '#' }]} />
-      <CreateDrawer
-        opened={create_drawer_open}
-        onClose={() => handleLoadDrawer('create', 'create', true)}
-        position="right"
-        w={700}
-        footer={
-          <Group
-            gap={8}
-            pt={16}
-            pb={16}
-            pos="sticky"
-            w="calc(100%)"
-            justify="end"
-            bottom={0}
-            left={32}
-            bg="white"
-            style={{ zIndex: 10, borderTop: '1px solid var(--mantine-color-stone-1)' }}
-          >
-            <Button
-              radius={10}
-              color="gray.2"
-              c="neutral.9"
-              onClick={() => handleLoadDrawer('create', 'create', true)}
-            >
-              Cancel
-            </Button>
-            <Button radius={10} color="sky.8">
-              Create Task
-            </Button>
-          </Group>
-        }
-      />
+
+      {viewData && (
+        <ViewDrawer
+          opened={viewDrawerOpen}
+          onClose={() => viewId && handleLoadDrawer('view', parseInt(viewId), true)}
+          position="right"
+          overlayProps={{ backgroundOpacity: 0 }}
+          size={'calc(100% - 320px)'}
+          title={
+            <Group gap={8}>
+              <IconArrowAutofitLeft
+                onClick={() => handleLoadDrawer('view', 1, true)}
+                style={{ cursor: 'pointer' }}
+              />
+              <Text fz={16} lh="140%" c="zinc.8" fw={600}>
+                #{viewData.driver}
+              </Text>{' '}
+            </Group>
+          }
+          // footer={
+          //   <Group
+          //     gap={8}
+          //     pt={16}
+          //     pb={16}
+          //     pos="sticky"
+          //     w="calc(100%)"
+          //     justify="end"
+          //     bottom={0}
+          //     left={32}
+          //     bg="white"
+          //     style={{ zIndex: 10, borderTop: '1px solid var(--mantine-color-stone-1)' }}
+          //   >
+          //     <Button radius={10} color="gray.2" c="neutral.9">
+          //       Edit
+          //     </Button>
+
+          //     <Button radius={10} color="sky.8">
+          //       Close
+          //     </Button>
+          //   </Group>
+          // }
+        >
+          <Stack gap={16}>
+            <Text fz={16} fw={600} lh="140%">
+              Driver Information
+            </Text>
+            <Stack gap={6}>
+              <Group>
+                <Text fz={14} fw={400} lh={'140%'}>
+                  Name:
+                </Text>
+                <Text fz={14} fw={400} lh={'140%'}>
+                  {viewData?.driver}
+                </Text>
+              </Group>
+              <Group>
+                <Text fz={14} fw={400} lh={'140%'}>
+                  Truck:
+                </Text>
+                <Text fz={14} fw={400} lh={'140%'}>
+                  #23423
+                </Text>
+              </Group>
+              <Group>
+                <Text fz={14} fw={400} lh={'140%'}>
+                  Company:
+                </Text>
+                <Text fz={14} fw={400} lh={'140%'}>
+                  Ajoda Transportation
+                </Text>
+              </Group>
+            </Stack>
+
+            <ModifiedTableComponent
+              data={viewData?.driverData}
+              columns={[
+                {
+                  label: 'Time(CT)',
+                  key: 'time',
+                  render: ({ time }) => time.toLocaleDateString(),
+                },
+                {
+                  label: 'Event',
+                  key: 'event',
+                },
+                {
+                  label: 'Status',
+                  key: 'status',
+                },
+                {
+                  label: 'Origin',
+                  key: 'origin',
+                },
+                {
+                  label: 'Odometer (mi)',
+                  key: 'odometer',
+                },
+                {
+                  label: 'Engine Hours',
+                  key: 'engineHours',
+                },
+                {
+                  label: 'ID',
+                  key: 'id',
+                },
+              ]}
+            />
+          </Stack>
+        </ViewDrawer>
+      )}
     </>
   );
 };
