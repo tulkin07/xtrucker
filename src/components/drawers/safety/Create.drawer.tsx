@@ -1,4 +1,4 @@
-import { IconCalendarFilled, IconCalendarFilled, IconFile } from '@tabler/icons-react';
+import { IconCalendarFilled, IconFile } from '@tabler/icons-react';
 import {
   Box,
   Button,
@@ -154,7 +154,7 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
             </Flex>
           </Grid.Col>
         </Grid>
-        </Text>
+
         <Grid>
           <Grid.Col span={6}>
             <TextInput radius={6} placeholder="Type..." label="MC number (Motor carrier)" />

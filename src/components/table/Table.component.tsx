@@ -382,9 +382,9 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
                       >
                         <Collapse in={isRowExpanded(item.id)}>{renderChildTable(item)}</Collapse>
                       </Table.Td>
-                    </Table.Tr>
-                  )}
-                </>
+                    </Table.Td>
+                  ))}
+                </Table.Tr>
               );
             })}
           </Table.Tbody>

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { IconCurrencyDollar, IconFile, IconTrash, IconUpload } from '@tabler/icons-react';
 import { useSearchParams } from 'react-router-dom';
 import {
@@ -11,13 +11,9 @@ import {
   Stack,
   Text,
   TextInput,
-  ActionIcon, 
-  Button,
-  Stack
 } from '@mantine/core';
-import ViewDrawer from '@/components/drawers/safety-tasks/View.drawer';
 import BottomBreadcrumbComponent from '@/components/bottom-breadcrumb/BottomBreadcrumb.component';
-
+import ViewDrawer from '@/components/drawers/safety-tasks/View.drawer';
 import CreateDrawer from '@/components/drawers/safety/Create.drawer';
 import Icon from '@/components/icons';
 import TopbarLayout from '@/components/layout/dashboard/Topbar.layout';
@@ -26,7 +22,6 @@ import { ISafetyTasks } from '@/interfaces';
 import { grayColors, zincColors } from '@/lib/theme/colors';
 
 const SafetyTasksPage = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
   const [searchParams, setSearchParams] = useSearchParams();
   const [selectedKeys, setSelectedKeys] = useState<ISafetyTasks[]>([]);
   const [viewData, setViewData] = useState<ISafetyTasks | null>(null);
