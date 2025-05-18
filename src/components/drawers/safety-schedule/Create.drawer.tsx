@@ -129,8 +129,8 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
               <Select radius={6} placeholder="Address" label="Address of repair shop" />
               <Radio.Group>
                 <Group mt="xs">
-                  <Radio label="Shop repair" value={'shop'} color="dark" />
-                  <Radio label="Mobile repair" value={'mobile'} color="dark" />
+                  <Radio label="Shop repair" value="shop" color="dark" />
+                  <Radio label="Mobile repair" value="mobile" color="dark" />
                 </Group>
               </Radio.Group>
 
@@ -147,8 +147,8 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
               </Text>
               <Radio.Group>
                 <Group mt="xs">
-                  <Radio label="Truck" value={'truck'} color="dark" />
-                  <Radio label="Trailers" value={'trailers'} color="dark" />
+                  <Radio label="Truck" value="truck" color="dark" />
+                  <Radio label="Trailers" value="trailers" color="dark" />
                 </Group>
               </Radio.Group>
               <Grid>
@@ -166,8 +166,8 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
               </Text>
               <Radio.Group>
                 <Group mt="xs">
-                  <Radio label="Date" value={'date'} color="dark" />
-                  <Radio label="As soon as possible (ASAP)" value={'asap'} color="dark" />
+                  <Radio label="Date" value="date" color="dark" />
+                  <Radio label="As soon as possible (ASAP)" value="asap" color="dark" />
                 </Group>
               </Radio.Group>
 
@@ -208,11 +208,11 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
                           radius="md"
                           rightSectionWidth={68}
                           rightSection={
-                            <Flex gap={'xs'}>
-                              <ActionIcon bg={'inherit'}>
+                            <Flex gap="xs">
+                              <ActionIcon bg="inherit">
                                 <IconMinus size={16} color="black" />
                               </ActionIcon>
-                              <ActionIcon bg={'inherit'}>
+                              <ActionIcon bg="inherit">
                                 <IconPlus size={16} color="black" />
                               </ActionIcon>
                             </Flex>
@@ -225,7 +225,7 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
                     label: 'Price',
                     key: 'price',
                     render: ({ price }) => {
-                      return <TextInput value={`${price}$`} onChange={() => {}} radius={'md'} />;
+                      return <TextInput value={`${price}$`} onChange={() => {}} radius="md" />;
                     },
                   },
                   {
@@ -242,9 +242,9 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
               </Text>
               <Radio.Group>
                 <Group mt="xs">
-                  <Radio label="Company" value={'company'} color="dark" />
-                  <Radio label="Drivers/Contractors" value={'drivers'} color="dark" />
-                  <Radio label="Others" value={'others'} color="dark" />
+                  <Radio label="Company" value="company" color="dark" />
+                  <Radio label="Drivers/Contractors" value="drivers" color="dark" />
+                  <Radio label="Others" value="others" color="dark" />
                 </Group>
               </Radio.Group>
               <MultiSelect

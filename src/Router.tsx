@@ -23,6 +23,7 @@ import { SafetyScheduleCalendarLoader } from './pages/safety-schedule-calendar';
 import { SafetyTasksLoader } from './pages/safety-tasks';
 import { SafetyTrucksLoader } from './pages/safety-trucks';
 
+const LandingPage = lazy(() => import('./pages/landing'));
 const DashboardLayout = lazy(() => import('./components/layout/dashboard/Dashboard.layout'));
 const SimpleLayout = lazy(() => import('./components/layout/simple-layout'));
 const SettingsLoader = lazy(
@@ -372,9 +373,16 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: '/',
+    element: (
+      <Suspense fallback="">
+        <LandingPage />
+      </Suspense>
+    ),
+  },
+  {
     element: <SimpleLayout />,
     children: [
-      { element: <Navigate to="/sign-up" />, index: true },
       {
         path: '404',
         element: (

@@ -1,0 +1,289 @@
+// navbar
+
+.navbar_wrapper {
+  padding: 13px 22px;
+  background-color: #fff;
+  box-shadow:
+    0px 2px 5px 0px #0000000a,
+    0px 10px 10px 0px #0000000a,
+    0px 22px 13px 0px #00000005,
+    0px 40px 16px 0px #00000003;
+  border-radius: 20px;
+  max-width: 986px;
+  margin-inline: auto;
+  margin-top: 32px;
+}
+
+.navbar_link {
+  color: #27272a;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+}
+
+// hero
+
+.hero_wrapper {
+  max-width: 986px;
+  margin-inline: auto;
+  margin-top: 164px;
+  margin-bottom: 68px;
+}
+
+.hero_box {
+  background-color: #f3f4f6;
+  border-radius: 155px;
+  padding: 8px 12px;
+  max-width: fit-content;
+  margin-inline: auto;
+  display: flex;
+  gap: 12px;
+  .hero_box_desc {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.32px;
+    text-align: center;
+  }
+  .hero_box_link {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.32px;
+    text-align: center;
+    color: #2563eb;
+  }
+}
+
+.hero_text {
+  font-weight: 800;
+  font-size: 70px;
+  line-height: 80px;
+  letter-spacing: -3.2px;
+  text-align: center;
+  color: #27272a;
+}
+
+.hero_sub_text {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: -0.32px;
+  text-align: center;
+  color: #19171c;
+}
+
+.hero_down_btn_text {
+  color: #71717a;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140%;
+  letter-spacing: 1%;
+  text-align: center;
+}
+
+// tools
+
+.tools_wrapper {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  max-width: 1240px;
+  margin-inline: auto;
+}
+
+.tool_box {
+  background-color: #e5e7eb;
+  border-radius: 155px;
+  padding: 8px 12px;
+  max-width: fit-content;
+  & .tool_box_text {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.32px;
+    text-align: center;
+    color: #19171c;
+  }
+}
+
+.tool_box_title {
+  font-weight: 800;
+  font-size: 70px;
+  line-height: 80px;
+  letter-spacing: -3.2px;
+  color: #27272a;
+}
+
+.tool_box_desc {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: -0.4px;
+  color: #27272a;
+}
+
+// accounting
+
+.accounting_wrapper {
+  max-width: 904px;
+  margin-top: 116px;
+  margin-bottom: 116px;
+  margin-inline: auto;
+}
+
+.accounting_box_desc {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 18px;
+  letter-spacing: -0.32px;
+  text-align: center;
+  color: #19171c;
+}
+
+.acoounting_desc {
+  color: #27272a;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.4px;
+  text-align: center;
+}
+
+.accounting_card {
+  background: #f3f4f6;
+  border-radius: 32px;
+  padding: 48px;
+  height: 100%;
+  & .card_title_wrapper {
+    box-shadow:
+      -1px 0px 0px 0px #ffffff,
+      1px 0px 0px 0px #ffffff;
+    background-color: #fff;
+    max-width: fit-content;
+    padding: 3px;
+    border-radius: 3px;
+    & .accounting_card_title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #19171c;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 20px;
+      letter-spacing: -0.2px;
+      .accounting_card_badge {
+        background-color: #f5ff63;
+        border-radius: 2px;
+        padding-inline: 8px;
+        font-weight: 800;
+        font-size: 18px;
+        line-height: 27.6px;
+        letter-spacing: -0.4px;
+        text-align: center;
+        vertical-align: middle;
+      }
+    }
+  }
+  & .accounting_card_desc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: -0.32px;
+    color: #6e6e73;
+  }
+}
+
+// roles
+
+.roles_wrapper {
+  max-width: 1266px;
+  background-color: #f3f4f6;
+  margin-inline: auto;
+  padding: 120px;
+  gap: 24px;
+  margin-bottom: 116px;
+}
+
+.roles_badge {
+  background-color: #f468ff;
+  border-radius: 40px;
+  max-width: fit-content;
+  padding-inline: 32px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  & .roles_badge_text {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.4px;
+    text-align: center;
+    vertical-align: middle;
+    color: #18181b;
+  }
+}
+
+.roles_main_text {
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 48px;
+  letter-spacing: -1.92px;
+  color: #18181b;
+}
+
+.roles_desc {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: -0.4px;
+  color: #19171c;
+}
+
+// suggestions
+
+.suggestions_wrapper {
+  max-width: 1194px;
+  margin-inline: auto;
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+
+.suggestion_card {
+  box-shadow:
+    0px 7px 16px 0px #0000001a,
+    0px 30px 30px 0px #00000017,
+    0px 67px 40px 0px #0000000d,
+    0px 119px 48px 0px #00000003;
+  background-color: #00b2ff;
+  border-radius: 24px;
+  padding: 21px;
+  cursor: pointer;
+  & .suggestion_card_title {
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 140%;
+    letter-spacing: 0.5%;
+    color: #ffffff;
+    transition: all 0.5s ease-in;
+  }
+
+  & .suggestion_card_desc {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 1%;
+    color: #ffffff;
+    transition: all 0.5s ease-in;
+  }
+  transition: all 0.5s ease-in;
+  &:hover {
+    background-color: #f2f1f3;
+    box-shadow: none;
+    & .suggestion_card_title {
+      color: #19171c;
+    }
+
+    & .suggestion_card_desc {
+      color: #6e6e73;
+    }
+  }
+}

@@ -77,30 +77,30 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
   childColumns,
   childTitle,
   childActions,
-  onRowClick,
+  // onRowClick,
   expandedRowId,
 }: ModifiedTableComponentProps<T>) => {
   // State to track which rows are expanded
-  const [expandedRows, setExpandedRows] = useState<Record<string | number, boolean>>({});
+  const [expandedRows, _setExpandedRows] = useState<Record<string | number, boolean>>({});
   const [nestedRowExpanded, setNestedRowExpanded] = useState<boolean>(false);
 
   // Toggle row expansion if no external control is provided
-  const toggleRow = (rowId: string | number) => {
-    if (onRowClick) {
-      onRowClick(rowId);
-    } else {
-      setExpandedRows((prev) => ({
-        ...prev,
-        [rowId]: !prev[rowId],
-      }));
-      setNestedRowExpanded((prev) => {
-        if (prev && !expandedRows[rowId]) {
-          return false;
-        }
-        return true;
-      });
-    }
-  };
+  // const toggleRow = (rowId: string | number) => {
+  //   if (onRowClick) {
+  //     onRowClick(rowId);
+  //   } else {
+  //     setExpandedRows((prev) => ({
+  //       ...prev,
+  //       [rowId]: !prev[rowId],
+  //     }));
+  //     setNestedRowExpanded((prev) => {
+  //       if (prev && !expandedRows[rowId]) {
+  //         return false;
+  //       }
+  //       return true;
+  //     });
+  //   }
+  // };
 
   // Check if a row is expanded
   const isRowExpanded = (rowId: string | number) => {
@@ -354,7 +354,10 @@ const ModifiedTableComponent = <T extends { id: number | string }>({
                   bg="red.1"
                   onClick={() => {
                     if (rowClick) {
-                      rowClick('view', typeof item.id === 'string' ? parseInt(item.id) : item.id);
+                      rowClick(
+                        'view',
+                        typeof item.id === 'string' ? parseInt(item.id, 10) : item.id
+                      );
                     }
                   }}
                 >

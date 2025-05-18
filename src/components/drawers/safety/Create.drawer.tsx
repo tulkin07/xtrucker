@@ -1,12 +1,9 @@
 import { IconCalendarFilled, IconFile } from '@tabler/icons-react';
 import {
-  Box,
   Button,
   Drawer,
   DrawerProps,
-  DrawerRootProps,
   FileButton,
-  FileInput,
   Flex,
   Grid,
   Group,
@@ -139,7 +136,7 @@ const CreateDrawer: React.FC<CreateDrawerProps> = (props) => {
             <Flex justify="space-between" align="center" p="md">
               <Group>
                 <IconFile size={20} />
-                <Text fz={16} fw={400} lh={'140%'}>
+                <Text fz={16} fw={400} lh="140%">
                   Upload invoice
                 </Text>
               </Group>

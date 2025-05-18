@@ -54,7 +54,7 @@ const SafetyScheduleCalendarPage = () => {
   useEffect(() => {
     const viewId = searchParams.get('view');
     if (viewId) {
-      const data = selectedKeys.find((item) => item.id === parseInt(viewId));
+      const data = selectedKeys.find((item) => item.id === parseInt(viewId, 10));
       setViewData(data || null);
     }
   }, [viewDrawerOpen]);
@@ -310,7 +310,7 @@ const SafetyScheduleCalendarPage = () => {
         onClose={() => handleLoadDrawer('create', 'create', true)}
         position="right"
         overlayProps={{ backgroundOpacity: 0 }}
-        size={'calc(100% - 320px)'}
+        size="calc(100% - 320px)"
         footer={
           <Group
             gap={8}
@@ -345,7 +345,7 @@ const SafetyScheduleCalendarPage = () => {
           onClose={() => handleLoadDrawer('view', selectedKeys[0].id, true)}
           position="right"
           overlayProps={{ backgroundOpacity: 0 }}
-          size={'calc(100% - 320px)'}
+          size="calc(100% - 320px)"
           title={
             <Group gap={8}>
               <IconArrowAutofitLeft
@@ -354,7 +354,8 @@ const SafetyScheduleCalendarPage = () => {
               />
               <Text fz={16} lh="140%" c="zinc.8" fw={600}>
                 #{viewData.order}
-              </Text>{' '}
+              </Text>
+              ' '
             </Group>
           }
           footer={
@@ -389,26 +390,26 @@ const SafetyScheduleCalendarPage = () => {
               </Text>
               <Stack gap={6}>
                 <Group>
-                  <Text fz={14} fw={400} lh={'140%'}>
+                  <Text fz={14} fw={400} lh="140%">
                     Name:
                   </Text>
-                  <Text fz={14} fw={400} lh={'140%'}>
+                  <Text fz={14} fw={400} lh="140%">
                     {viewData?.billTo.name}
                   </Text>
                 </Group>
                 <Group>
-                  <Text fz={14} fw={400} lh={'140%'}>
+                  <Text fz={14} fw={400} lh="140%">
                     Truck:
                   </Text>
-                  <Text fz={14} fw={400} lh={'140%'}>
+                  <Text fz={14} fw={400} lh="140%">
                     {viewData?.unit.id}
                   </Text>
                 </Group>
                 <Group>
-                  <Text fz={14} fw={400} lh={'140%'}>
+                  <Text fz={14} fw={400} lh="140%">
                     Company:
                   </Text>
-                  <Text fz={14} fw={400} lh={'140%'}>
+                  <Text fz={14} fw={400} lh="140%">
                     Ajoda Transportation
                   </Text>
                 </Group>
@@ -478,18 +479,18 @@ const SafetyScheduleCalendarPage = () => {
               </Text>
               <Stack gap={6}>
                 <Group>
-                  <Text fz={14} fw={400} lh={'140%'}>
+                  <Text fz={14} fw={400} lh="140%">
                     Payers:
                   </Text>
-                  <Text fz={14} fw={400} lh={'140%'}>
+                  <Text fz={14} fw={400} lh="140%">
                     {viewData?.billTo.name}
                   </Text>
                 </Group>
                 <Group>
-                  <Text fz={14} fw={400} lh={'140%'}>
+                  <Text fz={14} fw={400} lh="140%">
                     Payers Date:
                   </Text>
-                  <Text fz={14} fw={400} lh={'140%'}>
+                  <Text fz={14} fw={400} lh="140%">
                     {viewData?.repairDate.toLocaleDateString()}
                   </Text>
                 </Group>

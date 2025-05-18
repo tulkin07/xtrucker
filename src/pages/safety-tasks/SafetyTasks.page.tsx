@@ -43,7 +43,7 @@ const SafetyTasksPage = () => {
   useEffect(() => {
     const viewId = searchParams.get('view');
     if (viewId) {
-      const data = selectedKeys.find((item) => item.id === parseInt(viewId));
+      const data = selectedKeys.find((item) => item.id === parseInt(viewId, 10));
       setViewData(data || null);
     }
   }, [viewDrawerOpen]);
@@ -282,7 +282,7 @@ const SafetyTasksPage = () => {
                       {(props) => (
                         <Group {...props} gap={8}>
                           <IconUpload size={14} />
-                          <Text fz={12} fw={400} lh={'140%'} c={'var(--mantine-color-blue-5)'}>
+                          <Text fz={12} fw={400} lh="140%" c="var(--mantine-color-blue-5)">
                             {attachments}
                           </Text>
                         </Group>
@@ -360,82 +360,82 @@ const SafetyTasksPage = () => {
           <Stack gap={24}>
             <Stack gap={8}>
               <Group justify="space-between">
-                <Text fz={16} fw={400} lh={'24px'} c={grayColors[8]}>
+                <Text fz={16} fw={400} lh="24px" c={grayColors[8]}>
                   Type
                 </Text>
-                <Text fz={16} fw={600} lh={'24px'}>
+                <Text fz={16} fw={600} lh="24px">
                   {viewData.type}
                 </Text>
               </Group>
               <Group justify="space-between">
-                <Text fz={16} fw={400} lh={'24px'} c={grayColors[8]}>
+                <Text fz={16} fw={400} lh="24px" c={grayColors[8]}>
                   Driver
                 </Text>
-                <Text fz={16} fw={600} lh={'24px'}>
+                <Text fz={16} fw={600} lh="24px">
                   {viewData.driver}
                 </Text>
               </Group>
               <Group justify="space-between">
-                <Text fz={16} fw={400} lh={'24px'} c={grayColors[8]}>
+                <Text fz={16} fw={400} lh="24px" c={grayColors[8]}>
                   Date
                 </Text>
-                <Text fz={16} fw={600} lh={'24px'}>
+                <Text fz={16} fw={600} lh="24px">
                   {viewData.date.toLocaleDateString()}
                 </Text>
               </Group>
               <Group justify="space-between">
-                <Text fz={16} fw={400} lh={'24px'} c={grayColors[8]}>
+                <Text fz={16} fw={400} lh="24px" c={grayColors[8]}>
                   Expries
                 </Text>
-                <Text fz={16} fw={600} lh={'24px'}>
+                <Text fz={16} fw={600} lh="24px">
                   {viewData.expires.toLocaleDateString()}
                 </Text>
               </Group>
               <Group justify="space-between">
-                <Text fz={16} fw={400} lh={'24px'} c={grayColors[8]}>
+                <Text fz={16} fw={400} lh="24px" c={grayColors[8]}>
                   Previous Date
                 </Text>
-                <Text fz={16} fw={600} lh={'24px'}>
+                <Text fz={16} fw={600} lh="24px">
                   {viewData.previous.toLocaleDateString()}
                 </Text>
               </Group>
               <Group justify="space-between">
-                <Text fz={16} fw={400} lh={'24px'} c={grayColors[8]}>
+                <Text fz={16} fw={400} lh="24px" c={grayColors[8]}>
                   Frequency
                 </Text>
-                <Text fz={16} fw={600} lh={'24px'}>
+                <Text fz={16} fw={600} lh="24px">
                   {viewData.frequency}
                 </Text>
               </Group>
               <Group justify="space-between">
-                <Text fz={16} fw={400} lh={'24px'} c={grayColors[8]}>
+                <Text fz={16} fw={400} lh="24px" c={grayColors[8]}>
                   Status
                 </Text>
-                <Text fz={16} fw={600} lh={'24px'}>
+                <Text fz={16} fw={600} lh="24px">
                   None
                 </Text>
               </Group>
               <Group justify="space-between">
-                <Text fz={16} fw={400} lh={'24px'} c={grayColors[8]}>
+                <Text fz={16} fw={400} lh="24px" c={grayColors[8]}>
                   Amount
                 </Text>
-                <Text fz={16} fw={600} lh={'24px'}>
+                <Text fz={16} fw={600} lh="24px">
                   $200
                 </Text>
               </Group>
               <Group justify="space-between">
-                <Text fz={16} fw={400} lh={'24px'} c={grayColors[8]}>
+                <Text fz={16} fw={400} lh="24px" c={grayColors[8]}>
                   Compensation
                 </Text>
-                <Text fz={16} fw={600} lh={'24px'}>
+                <Text fz={16} fw={600} lh="24px">
                   $200
                 </Text>
               </Group>
               <Group justify="space-between">
-                <Text fz={16} fw={400} lh={'24px'} c={grayColors[8]}>
+                <Text fz={16} fw={400} lh="24px" c={grayColors[8]}>
                   Note
                 </Text>
-                <Text fz={16} fw={600} lh={'24px'}>
+                <Text fz={16} fw={600} lh="24px">
                   {viewData.notes}
                 </Text>
               </Group>
@@ -443,10 +443,10 @@ const SafetyTasksPage = () => {
             <FileButton onChange={() => {}}>
               {(props) => {
                 return (
-                  <Flex justify={'space-between'}>
+                  <Flex justify="space-between">
                     <Group {...props}>
                       <IconFile size={20} />
-                      <Text fz={16} fw={400} lh={'140%'} c={'var(--mantine-color-blue-5)'}>
+                      <Text fz={16} fw={400} lh="140%" c="var(--mantine-color-blue-5)">
                         Rate Confirmation
                       </Text>
                     </Group>

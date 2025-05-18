@@ -85,7 +85,7 @@ const LogBookPage = () => {
   useEffect(() => {
     const viewId = searchParams.get('view');
     if (viewId) {
-      const data = exampleData.find((item) => item.id === parseInt(viewId));
+      const data = exampleData.find((item) => item.id === parseInt(viewId, 10));
       setViewData(data || null);
     }
   }, [viewDrawerOpen]);
@@ -204,10 +204,10 @@ const LogBookPage = () => {
       {viewData && (
         <ViewDrawer
           opened={viewDrawerOpen}
-          onClose={() => viewId && handleLoadDrawer('view', parseInt(viewId), true)}
+          onClose={() => viewId && handleLoadDrawer('view', parseInt(viewId, 10), true)}
           position="right"
           overlayProps={{ backgroundOpacity: 0 }}
-          size={'calc(100% - 320px)'}
+          size="calc(100% - 320px)"
           title={
             <Group gap={8}>
               <IconArrowAutofitLeft
@@ -216,7 +216,7 @@ const LogBookPage = () => {
               />
               <Text fz={16} lh="140%" c="zinc.8" fw={600}>
                 #{viewData.driver}
-              </Text>{' '}
+              </Text>
             </Group>
           }
           // footer={
@@ -248,26 +248,26 @@ const LogBookPage = () => {
             </Text>
             <Stack gap={6}>
               <Group>
-                <Text fz={14} fw={400} lh={'140%'}>
+                <Text fz={14} fw={400} lh="140%">
                   Name:
                 </Text>
-                <Text fz={14} fw={400} lh={'140%'}>
+                <Text fz={14} fw={400} lh="140%">
                   {viewData?.driver}
                 </Text>
               </Group>
               <Group>
-                <Text fz={14} fw={400} lh={'140%'}>
+                <Text fz={14} fw={400} lh="140%">
                   Truck:
                 </Text>
-                <Text fz={14} fw={400} lh={'140%'}>
+                <Text fz={14} fw={400} lh="140%">
                   #23423
                 </Text>
               </Group>
               <Group>
-                <Text fz={14} fw={400} lh={'140%'}>
+                <Text fz={14} fw={400} lh="140%">
                   Company:
                 </Text>
-                <Text fz={14} fw={400} lh={'140%'}>
+                <Text fz={14} fw={400} lh="140%">
                   Ajoda Transportation
                 </Text>
               </Group>
