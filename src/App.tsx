@@ -5,16 +5,13 @@ import '@mantine/dates/styles.css';
 import './_mantine.scss';
 
 import { MantineProvider } from '@mantine/core';
-import InitThemeComponent, { InitAuthComponent } from './components/base-config-components';
-import { Router } from './Router';
+import { AppRouter } from './routes/AppRoute';
 import { theme } from './theme';
 
 export default function App() {
   return (
     <MantineProvider theme={theme}>
-      <InitThemeComponent />
-      <InitAuthComponent />
-      <Router />
+      <AppRouter />
     </MantineProvider>
   );
 }

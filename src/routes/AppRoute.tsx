@@ -3,7 +3,9 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import { BrokersLoader } from '@/pages/brokers';
 import { CompaniesLoader } from '@/pages/companies';
 import { DriverStatementsLoader } from '@/pages/driver-statements';
+import { CreateDriverStatementLoader } from '@/pages/driver-statements/crud';
 import { DriversLoader } from '@/pages/drivers';
+import EmployeesPage, { EmployeesLoader } from '@/pages/employees';
 import { FileViewerLoader } from '@/pages/file-viewer';
 import { FleetMaintenanceLoader } from '@/pages/fleet-maintenance';
 import { FleetMapViewLoader } from '@/pages/fleet-overview';
@@ -12,70 +14,69 @@ import { FleetTrucksLoader } from '@/pages/fleet-trucks';
 import { IncomeExpenseLoader } from '@/pages/income-expense';
 import { InvoicesLoader } from '@/pages/invoices/Invoices.loader';
 import { LoadManagerLoader } from '@/pages/load-management';
+import { LogBookLoader } from '@/pages/log-book';
 import { MapViewLoader } from '@/pages/map-view';
 import { PlanningCalendarLoader } from '@/pages/planning-calendar';
-import { CreateDriverStatementLoader } from './pages/driver-statements/crud';
-import EmployeesPage, { EmployeesLoader } from './pages/employees';
-import { LogBookLoader } from './pages/log-book';
-import RolesPage, { RolesLoader } from './pages/roles';
-import RoleCreatePage from './pages/roles/RoleCreate.page';
-import { SafetyScheduleCalendarLoader } from './pages/safety-schedule-calendar';
-import { SafetyTasksLoader } from './pages/safety-tasks';
-import { SafetyTrucksLoader } from './pages/safety-trucks';
+import RoleCreatePage from '@/pages/roles/RoleCreate.page';
+import { SafetyScheduleCalendarLoader } from '@/pages/safety-schedule-calendar';
+import { SafetyTasksLoader } from '@/pages/safety-tasks';
+import { SafetyTrucksLoader } from '@/pages/safety-trucks';
+import RolesPage, { RolesLoader } from '../pages/roles';
+import AuthRoute from './AuthRoute';
 
-const LandingPage = lazy(() => import('./pages/landing'));
-const DashboardLayout = lazy(() => import('./components/layout/dashboard/Dashboard.layout'));
-const SimpleLayout = lazy(() => import('./components/layout/simple-layout'));
+const LandingPage = lazy(() => import('../pages/landing/Landing.page'));
+const DashboardLayout = lazy(() => import('../components/layout/dashboard/Dashboard.layout'));
+const SimpleLayout = lazy(() => import('../components/layout/simple-layout'));
 const SettingsLoader = lazy(
-  () => import('./components/layout/settings/extra-components/Settings.loader')
+  () => import('../components/layout/settings/extra-components/Settings.loader')
 );
-const SettingsLayout = lazy(() => import('./components/layout/settings/Settings.layout'));
-const ProtectedRoute = lazy(() => import('./components/ui/protected-route'));
-const NotFoundPage = lazy(() => import('./pages/404.page'));
-const LoginPage = lazy(() => import('./pages/Login.page'));
-const SignUpPage = lazy(() => import('./pages/SignUp.page'));
-const OnboardingPage = lazy(() => import('./pages/Onboarding.page'));
-const Brokers = lazy(() => import('./pages/brokers'));
-const Drivers = lazy(() => import('./pages/drivers'));
-const LoadManagement = lazy(() => import('./pages/load-management'));
-const MapView = lazy(() => import('./pages/map-view'));
-const PlanningCalendar = lazy(() => import('./pages/planning-calendar'));
-const CompanyProfilePage = lazy(() => import('./pages/settings/CompanyProfile.page'));
-const IntegrationsPage = lazy(() => import('./pages/settings/Integrations.page'));
-const PersonalInfoPage = lazy(() => import('./pages/settings/PersonalInfo.page'));
-const SecurityPage = lazy(() => import('./pages/settings/Security.page'));
+const SettingsLayout = lazy(() => import('../components/layout/settings/Settings.layout'));
+const ProtectedRoute = lazy(() => import('../routes/ProtectedRoute'));
+const NotFoundPage = lazy(() => import('../pages/404.page'));
+const LoginPage = lazy(() => import('../pages/Login.page'));
+const SignUpPage = lazy(() => import('../pages/SignUp.page'));
+const OnboardingPage = lazy(() => import('../pages/Onboarding.page'));
+const Brokers = lazy(() => import('../pages/brokers'));
+const Drivers = lazy(() => import('../pages/drivers'));
+const LoadManagement = lazy(() => import('../pages/load-management'));
+const MapView = lazy(() => import('../pages/map-view'));
+const PlanningCalendar = lazy(() => import('../pages/planning-calendar'));
+const CompanyProfilePage = lazy(() => import('../pages/settings/CompanyProfile.page'));
+const IntegrationsPage = lazy(() => import('../pages/settings/Integrations.page'));
+const PersonalInfoPage = lazy(() => import('../pages/settings/PersonalInfo.page'));
+const SecurityPage = lazy(() => import('../pages/settings/Security.page'));
 
 const FleetTrucksPage = lazy(() => import('@/pages/fleet-trucks'));
 const FleetMaintenance = lazy(() => import('@/pages/fleet-maintenance'));
 const FleetTrailersPage = lazy(() => import('@/pages/fleet-trailers'));
-const FleetDashboardLayout = lazy(() => import('./components/layout/fleet/FleetDashboard.layout'));
-const FleetMapViewPage = lazy(() => import('./pages/fleet-overview/MapView.page'));
+const FleetDashboardLayout = lazy(() => import('../components/layout/fleet/FleetDashboard.layout'));
+const FleetMapViewPage = lazy(() => import('../pages/fleet-overview/MapView.page'));
 
 const AccountingDashboardLayout = lazy(
-  () => import('./components/layout/accounting/AccountingDashboard.layout')
+  () => import('../components/layout/accounting/AccountingDashboard.layout')
 );
-const InvoicesPage = lazy(() => import('./pages/invoices'));
-const IncomeExpensePage = lazy(() => import('./pages/income-expense'));
-const DriverStatements = lazy(() => import('./pages/driver-statements'));
-const CreateDriverStatementPage = lazy(() => import('./pages/driver-statements/crud'));
-const CompaniesPage = lazy(() => import('./pages/companies'));
-const FileViewerPage = lazy(() => import('./pages/file-viewer'));
+const InvoicesPage = lazy(() => import('../pages/invoices'));
+const IncomeExpensePage = lazy(() => import('../pages/income-expense'));
+const DriverStatements = lazy(() => import('../pages/driver-statements'));
+const CreateDriverStatementPage = lazy(() => import('../pages/driver-statements/crud'));
+const CompaniesPage = lazy(() => import('../pages/companies'));
+const FileViewerPage = lazy(() => import('../pages/file-viewer'));
 
 const SafetyDashboardLayout = lazy(
-  () => import('./components/layout/safety/SafetyDashboard.layout')
+  () => import('../components/layout/safety/SafetyDashboard.layout')
 );
-const LogBookPage = lazy(() => import('./pages/log-book'));
-const SafetyTasksPage = lazy(() => import('./pages/safety-tasks'));
-const SafetyTrucksPage = lazy(() => import('./pages/safety-trucks'));
-const SafetyScheduleCalendarPage = lazy(() => import('./pages/safety-schedule-calendar'));
+const LogBookPage = lazy(() => import('../pages/log-book'));
+const SafetyTasksPage = lazy(() => import('../pages/safety-tasks'));
+const SafetyTrucksPage = lazy(() => import('../pages/safety-trucks'));
+const SafetyScheduleCalendarPage = lazy(() => import('../pages/safety-schedule-calendar'));
 
-const AdminDashboardLayout = lazy(() => import('./components/layout/admin/AdminDashboard.layout'));
+const AdminDashboardLayout = lazy(() => import('../components/layout/admin/AdminDashboard.layout'));
 
 const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: (
-      <Suspense fallback="">
+      <Suspense fallback="Loading...">
         <ProtectedRoute>
           <DashboardLayout />
         </ProtectedRoute>
@@ -360,7 +361,9 @@ const router = createBrowserRouter([
     path: '/sign-up',
     element: (
       <Suspense fallback="">
-        <SignUpPage />
+        <AuthRoute>
+          <SignUpPage />
+        </AuthRoute>
       </Suspense>
     ),
   },
@@ -368,14 +371,16 @@ const router = createBrowserRouter([
     path: '/login',
     element: (
       <Suspense fallback="">
-        <LoginPage />
+        <AuthRoute>
+          <LoginPage />
+        </AuthRoute>
       </Suspense>
     ),
   },
   {
     path: '/',
     element: (
-      <Suspense fallback="">
+      <Suspense fallback="Loading...">
         <LandingPage />
       </Suspense>
     ),
@@ -396,6 +401,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-export function Router() {
+export function AppRouter() {
   return <RouterProvider router={router} />;
 }
