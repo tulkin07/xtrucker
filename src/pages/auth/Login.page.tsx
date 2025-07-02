@@ -1,4 +1,7 @@
-import classes from './styles/Login.module.scss';
+import { useState } from 'react';
+import classes from '../styles/Login.module.scss';
+import { Spin } from 'antd';
+import { useNavigate } from 'react-router-dom';
 import {
   Anchor,
   Box,
@@ -11,8 +14,29 @@ import {
   TextInput,
 } from '@mantine/core';
 import GoogleIcon from '@/components/icons/module/Google.icon';
+import { useSession } from '@/context/sessionContext';
+import useLogin from './hooks/useLogin';
 
 const LoginPage = () => {
+  const { mutate, isPending } = useLogin();
+  const { setAccessToken } = useSession();
+  const [gmail, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const login = () => {
+    const data = {
+      gmail,
+      password,
+    };
+    mutate(data, {
+      onSuccess: (data) => {
+        setAccessToken(data.access_token);
+        navigate('/dashboard');
+      },
+    });
+  };
+
   return (
     <Stack h="100vh" justify="center" align="center" bg="#F3F4F6">
       <Box>
@@ -21,6 +45,8 @@ const LoginPage = () => {
           <Stack gap={28}>
             <Stack gap={16}>
               <TextInput
+                value={gmail}
+                onChange={(e) => setEmail(e.currentTarget.value)}
                 placeholder="Email address"
                 radius="md"
                 styles={{
@@ -30,6 +56,8 @@ const LoginPage = () => {
                 }}
               />
               <PasswordInput
+                value={password}
+                onChange={(e) => setPassword(e.currentTarget.value)}
                 placeholder="Password"
                 radius="md"
                 styles={{
@@ -40,8 +68,8 @@ const LoginPage = () => {
               />
             </Stack>
             <Stack gap={24}>
-              <Button radius="md" color="teal.5">
-                Create account
+              <Button disabled={isPending} radius="md" color="teal.5" onClick={login}>
+                {isPending ? <Spin /> : 'Create account'}
               </Button>
               <Divider
                 my="xs"

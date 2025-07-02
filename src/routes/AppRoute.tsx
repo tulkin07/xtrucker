@@ -23,6 +23,7 @@ import { SafetyTasksLoader } from '@/pages/safety-tasks';
 import { SafetyTrucksLoader } from '@/pages/safety-trucks';
 import RolesPage, { RolesLoader } from '../pages/roles';
 import AuthRoute from './AuthRoute';
+import Spinner from '@/components/ui/Spinner';
 
 const LandingPage = lazy(() => import('../pages/landing/Landing.page'));
 const DashboardLayout = lazy(() => import('../components/layout/dashboard/Dashboard.layout'));
@@ -33,8 +34,8 @@ const SettingsLoader = lazy(
 const SettingsLayout = lazy(() => import('../components/layout/settings/Settings.layout'));
 const ProtectedRoute = lazy(() => import('../routes/ProtectedRoute'));
 const NotFoundPage = lazy(() => import('../pages/404.page'));
-const LoginPage = lazy(() => import('../pages/Login.page'));
-const SignUpPage = lazy(() => import('../pages/SignUp.page'));
+const LoginPage = lazy(() => import('../pages/auth/Login.page'));
+const SignUpPage = lazy(() => import('../pages/auth/SignUp.page'));
 const OnboardingPage = lazy(() => import('../pages/Onboarding.page'));
 const Brokers = lazy(() => import('../pages/brokers'));
 const Drivers = lazy(() => import('../pages/drivers'));
@@ -76,8 +77,8 @@ const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: (
-      <Suspense fallback="Loading...">
-        <ProtectedRoute>
+      <Suspense fallback={<Spinner/>}>
+        <ProtectedRoute >
           <DashboardLayout />
         </ProtectedRoute>
       </Suspense>

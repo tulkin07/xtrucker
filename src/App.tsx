@@ -8,9 +8,13 @@ import { MantineProvider } from '@mantine/core';
 import { AppRouter } from './routes/AppRoute';
 import { theme } from './theme';
 
+import '@mantine/notifications/styles.css';
+import { Notifications } from '@mantine/notifications';
+
 export default function App() {
   return (
     <MantineProvider theme={theme}>
+      <Notifications />
       <AppRouter />
     </MantineProvider>
   );

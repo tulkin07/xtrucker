@@ -1,23 +1,34 @@
+import { useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
+import { useSession } from '@/context/sessionContext';
+import { useUser } from '@/context/userContext';
+import useMe from '@/pages/auth/hooks/useMe';
+import Spinner from '@/components/ui/Spinner';
 interface IProps {
   roles?: string[];
 }
 
-const ProtectedRoute = ({ children }: React.PropsWithChildren<IProps>) => {
-  // const { user } = useAppContext();
+const ProtectedRoute = ({ children,roles }: React.PropsWithChildren<IProps>) => {
+  const { setUser } = useUser();
+  const { data: user, isLoading } = useMe();
+  const { accessToken } = useSession();
+  useEffect(() => {
+    if (user) {
+      setUser(user);
+    }
+  }, [user]);
 
-  // if ("userData") {
-  //   return children;
-  // }
+  if (!accessToken) {
+    return <Navigate to="/login" replace />;
+  }
 
-  // if (JSON.stringify(user) === '{}') {
-  //   return <Navigate to="/login" replace />;
-  // }
+  if (isLoading || !user) {
+    return <Spinner/>
+  }
 
-  // const role = userdata?.roles?.[0]?.role_code;
-
-  // if (roles && !roles.includes(role)) {
-  //   return <Navigate to="/404" replace />;
-  // }
+  if (roles && !roles.includes(user.user_role)) {
+    return <Navigate to="/404" replace />;
+  }
 
   return children;
 };

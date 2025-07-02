@@ -1,7 +1,11 @@
 import { Button, Stack, Text } from '@mantine/core';
 import Icon from '@/components/icons/Icon.component';
+import { useSession } from '@/context/sessionContext';
+import { useUser } from '@/context/userContext';
 
 const ProfilePopover = () => {
+  const {logout} = useSession()
+  const {setUser} = useUser()
   return (
     <Stack gap={0}>
       <Text p="8px 12px" c="#14B8A6" fz={16} lh="140%" fw={600}>
@@ -48,7 +52,10 @@ const ProfilePopover = () => {
         }}
         leftSection={<Icon width="20px" height="20px" icon="i_logout" color="#EF4444" />}
       >
-        <Text fw={400} fz={16} lh="140%" c="#EF4444">
+        <Text fw={400} fz={16} lh="140%" c="#EF4444" onClick={()=>{
+          logout()
+          setUser(null)
+        }}>
           Log out
         </Text>
       </Button>

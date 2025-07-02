@@ -1,4 +1,4 @@
-import classes from './styles/Register.module.scss';
+import classes from '../styles/Register.module.scss';
 import rightLargeImage from '/assets/media/register-right-image.webp';
 import {
   Anchor,
