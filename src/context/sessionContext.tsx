@@ -11,7 +11,6 @@ const SessionContext = createContext<ISessionContext>({
 export const SessionProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [accessToken, setAccessTokenState] = useState<string | null>(null);
 
-
   useEffect(() => {
     const token = localStorage.getItem('access_token');
     if (token) {
@@ -19,7 +18,6 @@ export const SessionProvider: React.FC<{ children: React.ReactNode }> = ({ child
     }
   }, []);
 
-  
   const setAccessToken = (token: string | null) => {
     if (token) {
       localStorage.setItem('access_token', token);
@@ -29,7 +27,6 @@ export const SessionProvider: React.FC<{ children: React.ReactNode }> = ({ child
       setAccessTokenState(null);
     }
   };
-
 
   const logout = () => {
     localStorage.removeItem('access_token');

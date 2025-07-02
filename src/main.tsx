@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { SessionProvider } from './context/sessionContext';
 import { UserProvider } from './context/userContext';
+
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
 

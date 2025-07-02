@@ -1,14 +1,15 @@
 import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+import Spinner from '@/components/ui/Spinner';
 import { useSession } from '@/context/sessionContext';
 import { useUser } from '@/context/userContext';
 import useMe from '@/pages/auth/hooks/useMe';
-import Spinner from '@/components/ui/Spinner';
+
 interface IProps {
   roles?: string[];
 }
 
-const ProtectedRoute = ({ children,roles }: React.PropsWithChildren<IProps>) => {
+const ProtectedRoute = ({ children, roles }: React.PropsWithChildren<IProps>) => {
   const { setUser } = useUser();
   const { data: user, isLoading } = useMe();
   const { accessToken } = useSession();
@@ -23,7 +24,7 @@ const ProtectedRoute = ({ children,roles }: React.PropsWithChildren<IProps>) => 
   }
 
   if (isLoading || !user) {
-    return <Spinner/>
+    return <Spinner />;
   }
 
   if (roles && !roles.includes(user.user_role)) {

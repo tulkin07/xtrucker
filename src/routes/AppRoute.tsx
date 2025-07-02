@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
+import Spinner from '@/components/ui/Spinner';
 import { BrokersLoader } from '@/pages/brokers';
 import { CompaniesLoader } from '@/pages/companies';
 import { DriverStatementsLoader } from '@/pages/driver-statements';
@@ -23,7 +24,6 @@ import { SafetyTasksLoader } from '@/pages/safety-tasks';
 import { SafetyTrucksLoader } from '@/pages/safety-trucks';
 import RolesPage, { RolesLoader } from '../pages/roles';
 import AuthRoute from './AuthRoute';
-import Spinner from '@/components/ui/Spinner';
 
 const LandingPage = lazy(() => import('../pages/landing/Landing.page'));
 const DashboardLayout = lazy(() => import('../components/layout/dashboard/Dashboard.layout'));
@@ -77,8 +77,8 @@ const router = createBrowserRouter([
   {
     path: '/dashboard',
     element: (
-      <Suspense fallback={<Spinner/>}>
-        <ProtectedRoute >
+      <Suspense fallback={<Spinner />}>
+        <ProtectedRoute>
           <DashboardLayout />
         </ProtectedRoute>
       </Suspense>

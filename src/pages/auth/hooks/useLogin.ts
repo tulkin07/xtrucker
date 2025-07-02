@@ -9,7 +9,7 @@ export default function useLogin() {
     mutationKey: ['login'],
     mutationFn: (data: LoginType) =>
       api.post('/auth/login/with/password', data).then((res) => res.data),
-      onError: (error) => {
+    onError: (error) => {
       notifications.show({
         color: 'red',
         position: 'top-center',
