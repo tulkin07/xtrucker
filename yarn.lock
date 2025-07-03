@@ -1163,6 +1163,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-oauth/google@npm:^0.12.2":
+  version: 0.12.2
+  resolution: "@react-oauth/google@npm:0.12.2"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 10c0/659c0d703339ca98df5ddb05c6c78868a291ddefa9ded995acb1e6eeed1e83bc05da4720420f868ecebbef242faac44a48a8dae86487da008521a0678e03edeb
+  languageName: node
+  linkType: hard
+
 "@rolldown/pluginutils@npm:1.0.0-beta.19":
   version: 1.0.0-beta.19
   resolution: "@rolldown/pluginutils@npm:1.0.0-beta.19"
@@ -5097,6 +5107,7 @@ __metadata:
     "@mantine/dropzone": "npm:^7.17.1"
     "@mantine/hooks": "npm:7.17.0"
     "@mantine/notifications": "npm:^8.1.2"
+    "@react-oauth/google": "npm:^0.12.2"
     "@storybook/react": "npm:^8.5.0"
     "@storybook/react-vite": "npm:^8.5.0"
     "@tabler/icons-react": "npm:^3.31.0"

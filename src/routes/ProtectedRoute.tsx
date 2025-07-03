@@ -1,29 +1,22 @@
-import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import Spinner from '@/components/ui/Spinner';
 import { useSession } from '@/context/sessionContext';
 import { useUser } from '@/context/userContext';
-import useMe from '@/pages/auth/hooks/useMe';
 
 interface IProps {
-  roles?: string[];
+  roles?: string[]; 
+  children: React.ReactNode;
 }
 
-const ProtectedRoute = ({ children, roles }: React.PropsWithChildren<IProps>) => {
-  const { setUser } = useUser();
-  const { data: user, isLoading } = useMe();
+const ProtectedRoute = ({ children, roles }: IProps) => {
   const { accessToken } = useSession();
-  useEffect(() => {
-    if (user) {
-      setUser(user);
-    }
-  }, [user]);
+  const { user } = useUser();
 
   if (!accessToken) {
     return <Navigate to="/login" replace />;
   }
 
-  if (isLoading || !user) {
+  if (!user) {
     return <Spinner />;
   }
 
@@ -31,7 +24,7 @@ const ProtectedRoute = ({ children, roles }: React.PropsWithChildren<IProps>) =>
     return <Navigate to="/404" replace />;
   }
 
-  return children;
+  return <>{children}</>;
 };
 
 export default ProtectedRoute;

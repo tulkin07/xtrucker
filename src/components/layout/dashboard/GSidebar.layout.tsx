@@ -1,9 +1,14 @@
 import classes from './styles/GSidebar.module.scss';
 import { ActionIcon, Group, Stack } from '@mantine/core';
 import Icon from '@/components/icons/Icon.component';
+import { useSession } from '@/context/sessionContext';
+import { useUser } from '@/context/userContext';
 import GSidebarItem from './extra-components/GSidebar.item';
 
 const GSidebarLayout = () => {
+  const { logout } = useSession();
+  const { setUser } = useUser();
+
   const globalUrls = [
     { icon: 'i_dashboard_fill', tooltip: 'Dashboard', url: '/dashboard' },
     { icon: 'i_calculator', tooltip: 'Accounting', url: '/accounting-dashboard' },
@@ -25,7 +30,17 @@ const GSidebarLayout = () => {
           })}
         </Group>
       </Group>
-      <ActionIcon w={40} h={40} radius={12} color="slate.1" mx="auto">
+      <ActionIcon
+        w={40}
+        h={40}
+        radius={12}
+        color="slate.1"
+        mx="auto"
+        onClick={() => {
+          logout();
+          setUser(null);
+        }}
+      >
         <Icon icon="i_exit" width="24px" height="24px" />
       </ActionIcon>
     </Stack>

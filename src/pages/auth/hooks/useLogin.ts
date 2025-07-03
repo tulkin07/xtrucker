@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
-import { notifications } from '@mantine/notifications';
 import { useApi } from '@/hooks/useApi';
+import { handleAxiosError } from '@/utils/handleAxiosError';
 import { LoginType } from '../types';
 
 export default function useLogin() {
@@ -10,11 +10,7 @@ export default function useLogin() {
     mutationFn: (data: LoginType) =>
       api.post('/auth/login/with/password', data).then((res) => res.data),
     onError: (error) => {
-      notifications.show({
-        color: 'red',
-        position: 'top-center',
-        message: error.message,
-      });
+      handleAxiosError(error);
     },
     retry: 2,
   });
