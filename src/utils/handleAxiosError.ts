@@ -22,5 +22,4 @@ export function handleAxiosError(error: unknown, fallbackMessage = 'Something we
       message: fallbackMessage,
     });
   }
-
 }

@@ -4,7 +4,7 @@ import { useSession } from '@/context/sessionContext';
 import { useUser } from '@/context/userContext';
 
 interface IProps {
-  roles?: string[]; 
+  roles?: string[];
   children: React.ReactNode;
 }
 

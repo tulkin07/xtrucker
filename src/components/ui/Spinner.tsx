@@ -12,7 +12,7 @@ export default function Spinner() {
         justifyContent: 'center',
       }}
     >
-      <Spin  size="large" />
+      <Spin size="large" />
     </div>
   );
 }

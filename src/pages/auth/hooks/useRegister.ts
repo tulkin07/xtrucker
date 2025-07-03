@@ -1,8 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
 import { notifications } from '@mantine/notifications';
 import { useApi } from '@/hooks/useApi';
-import { LoginType } from '../types';
 import { handleAxiosError } from '@/utils/handleAxiosError';
+import { LoginType } from '../types';
 
 export default function useRegister() {
   const api = useApi();
@@ -10,7 +10,7 @@ export default function useRegister() {
     mutationKey: ['register'],
     mutationFn: (data: LoginType) => api.post('/auth/register', data).then((res) => res.data),
     onError: (error) => {
-     handleAxiosError(error)
+      handleAxiosError(error);
     },
     onSuccess: (data) => {
       notifications.show({

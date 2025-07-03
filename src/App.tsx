@@ -12,7 +12,6 @@ import '@mantine/notifications/styles.css';
 // index.tsx yoki App.tsx ning eng yuqorisiga yoziladi
 import 'antd/dist/reset.css'; // yoki Ant Design 5+ bo‘lsa
 
-
 import { useEffect } from 'react';
 import { Notifications } from '@mantine/notifications';
 import { useSession } from './context/sessionContext';
