@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import Spinner from '@/components/ui/Spinner';
 import AuthRoute from './AuthRoute';
+import OnboardingRoute from './OnboardingRoute';
 import ProtectedRoute from './ProtectedRoute';
 
 // Layouts
@@ -22,7 +23,7 @@ const LandingPage = lazy(() => import('@/pages/landing/Landing.page'));
 const LoginPage = lazy(() => import('@/pages/auth/pages/Login.page'));
 const OauthCallbackPage = lazy(() => import('@/pages/auth/pages/OauthCallback'));
 const SignUpPage = lazy(() => import('@/pages/auth/pages/SignUp.page'));
-const OnboardingPage = lazy(() => import('@/pages/Onboarding.page'));
+const OnboardingPage = lazy(() => import('@/pages/onboarding/Onboarding.page'));
 const NotFoundPage = lazy(() => import('@/pages/404.page'));
 
 // Dashboard pages (examples, group similar together)
@@ -63,15 +64,13 @@ const FleetTrailersPage = lazy(() => import('@/pages/fleet-trailers'));
 const FleetMaintenance = lazy(() => import('@/pages/fleet-maintenance'));
 const FleetMapViewPage = lazy(() => import('@/pages/fleet-overview/MapView.page'));
 
-// Loaders (you can add fallback loaders here if needed)
-
 const suspenseWrapper = (element: React.ReactNode, fallback: React.ReactNode = <Spinner />) => (
   <Suspense fallback={fallback}>{element}</Suspense>
 );
 
-const withProtected = (element: React.ReactNode, roles?: string[]) => (
-  <ProtectedRoute roles={roles}>{element}</ProtectedRoute>
-);
+const withProtected = (element: React.ReactNode, roles?: string[]) => {
+  return <ProtectedRoute roles={roles}>{element}</ProtectedRoute>;
+};
 
 const router = createBrowserRouter([
   {
@@ -104,7 +103,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/onboarding',
-    element: suspenseWrapper(<OnboardingPage />),
+    element: suspenseWrapper(
+      <OnboardingRoute>
+        <OnboardingPage />
+      </OnboardingRoute>
+    ),
   },
   {
     path: '/dashboard',

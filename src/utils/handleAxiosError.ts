@@ -2,7 +2,6 @@ import { isAxiosError } from 'axios';
 import { notifications } from '@mantine/notifications';
 
 export function handleAxiosError(error: unknown, fallbackMessage = 'Something went wrong') {
-  // Faqat AxiosError bo‘lsa ishlaymiz
   if (isAxiosError(error)) {
     const detail =
       error.response?.data?.detail ||
@@ -12,7 +11,7 @@ export function handleAxiosError(error: unknown, fallbackMessage = 'Something we
     notifications.show({
       color: 'red',
       position: 'top-center',
-      message: detail || fallbackMessage,
+      message: detail || error.message || fallbackMessage,
     });
   } else {
     // Boshqa errorlar uchun

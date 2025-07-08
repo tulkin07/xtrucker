@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import mainClasses from './styles/main.module.scss';
+import { Spin } from 'antd';
 import { Button, Card, Stack, Text } from '@mantine/core';
 import StepsTabComponent from './Steps.tab.component';
 
@@ -11,6 +12,7 @@ type TabLayoutProps = {
   children: ReactNode;
   buttonText?: string;
   onButtonClick?: () => void;
+  isPending: boolean;
 };
 
 const TabLayout: React.FC<TabLayoutProps> = ({
@@ -19,6 +21,7 @@ const TabLayout: React.FC<TabLayoutProps> = ({
   step,
   maxStep = 3,
   children,
+  isPending,
   buttonText = 'Transfer ownership',
   onButtonClick = () => {},
 }) => {
@@ -36,8 +39,16 @@ const TabLayout: React.FC<TabLayoutProps> = ({
         <StepsTabComponent step={step} maxStep={maxStep} />
         <Card p={20} withBorder classNames={{ root: mainClasses.tab_card }}>
           {children}
-          <Button color="sky.8" radius={8} fullWidth onClick={onButtonClick} mt={16}>
-            {buttonText}
+          <Button
+            disabled={isPending}
+            onClick={onButtonClick}
+            color="sky.8"
+            radius={8}
+            fullWidth
+            type="submit"
+            mt={16}
+          >
+            {isPending ? <Spin /> : buttonText}
           </Button>
         </Card>
       </Stack>

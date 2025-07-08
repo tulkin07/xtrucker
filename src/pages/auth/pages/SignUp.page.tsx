@@ -4,6 +4,7 @@ import { Form, Input, Spin } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { Anchor, Box, Button, Checkbox, Divider, Flex, List, Stack, Text } from '@mantine/core';
 import GoogleIcon from '@/components/icons/module/Google.icon';
+import { apiRoutes } from '@/service/apiRoutes';
 import useRegister from '../hooks/useRegister';
 import { RegisterType } from '../types';
 
@@ -126,7 +127,7 @@ const SignUpPage = () => {
                   />
                   <Button
                     onClick={() => {
-                      window.location.href = `${import.meta.env.VITE_API_BASE_URL}/google/login`;
+                      window.location.href = `${import.meta.env.VITE_API_BASE_URL + apiRoutes.authLoginWithGoogle}`;
                     }}
                     radius="md"
                     mt={10}

@@ -2,13 +2,14 @@ import { useMutation } from '@tanstack/react-query';
 import { useApi } from '@/hooks/useApi';
 import { handleAxiosError } from '@/utils/handleAxiosError';
 import { LoginType } from '../types';
+import { apiRoutes } from '@/service/apiRoutes';
 
 export default function useLogin() {
   const api = useApi();
   const { mutate, error, isError, isPending } = useMutation({
-    mutationKey: ['login'],
+    mutationKey: [apiRoutes.authLoginWithPassword],
     mutationFn: (data: LoginType) =>
-      api.post('/auth/login/with/password', data).then((res) => res.data),
+      api.post(apiRoutes.authLoginWithPassword, data).then((res) => res.data),
     onError: (error) => {
       handleAxiosError(error);
     },

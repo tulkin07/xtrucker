@@ -19,6 +19,9 @@ const ProtectedRoute = ({ children, roles }: IProps) => {
   if (!user) {
     return <Spinner />;
   }
+  if (user.onboarding_status !== 'ONBOARDING_COMPLETED' && user.onboarding_status !== null) {
+    return <Navigate to="/onboarding" replace />;
+  }
 
   if (roles && !roles.includes(user.user_role)) {
     return <Navigate to="/404" replace />;

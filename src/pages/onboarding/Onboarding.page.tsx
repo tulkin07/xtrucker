@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from 'react';
-import onboardingClasses from './styles/Onboarding.module.scss';
+import onboardingClasses from '../styles/Onboarding.module.scss';
 import { IconArrowLeft } from '@tabler/icons-react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { Box, Button, Group, Stack } from '@mantine/core';
@@ -87,9 +87,9 @@ const OnboardingPage = () => {
       <Stack maw={500} gap={20}>
         {renderTabs}
         <Group justify="center">
-          <Button variant="subtle" color="#384252" radius="md" onClick={handleSkip}>
+          {/* <Button variant="subtle" color="#384252" radius="md" onClick={handleSkip}>
             Skip
-          </Button>
+          </Button> */}
         </Group>
       </Stack>
     </Box>

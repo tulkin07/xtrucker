@@ -5,6 +5,7 @@ export interface IUser {
   full_name: string;
   user_role: string;
   company_id: number;
+  onboarding_status:string
 }
 // types.ts
 export interface IUserContext {
